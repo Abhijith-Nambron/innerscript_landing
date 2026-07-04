@@ -9,23 +9,23 @@
   <!-- SEO Meta Tags -->
   <title>InnerScript | Source-Backed AI Memory Companion & Private Diary</title>
   <meta name="description"
-    content="InnerScript is a private diary and AI memory companion that turns years of journals, notes, and personal writing into source-backed self-understanding. High-security, local-first, and distraction-free." />
+    content="InnerScript is a private diary and AI memory companion that turns years of journals, notes, and personal writing into source-backed self-understanding. Local-first, thoughtful, and distraction-free." />
   <meta name="keywords"
-    content="private diary, AI memory companion, local-first, semantic search, self-reflection, encryption, secure journal, Logseq style, Marcus Aurelius" />
+    content="private diary, AI memory companion, personal writing, self-reflection, journal, thoughtful notes, Marcus Aurelius" />
   <meta name="author" content="InnerScript" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="InnerScript | Source-Backed AI Memory Companion" />
   <meta property="og:description"
-    content="Turn years of journals, notes, and personal writing into source-backed self-understanding. Absolute privacy, local-first." />
+    content="Turn years of journals, notes, and personal writing into source-backed self-understanding. Local-first and distraction-free." />
   <meta property="og:image" content="/statue.png" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:title" content="InnerScript | Source-Backed AI Memory Companion" />
   <meta property="twitter:description"
-    content="Turn years of journals, notes, and personal writing into source-backed self-understanding. Absolute privacy, local-first." />
+    content="Turn years of journals, notes, and personal writing into source-backed self-understanding. Local-first and distraction-free." />
   <meta property="twitter:image" content="/statue.png" />
 
   <!-- Google Fonts: Instrument Serif, Inter, & Fira Code (monospaced) -->
@@ -50,13 +50,12 @@
       <nav class="nav-links" id="main-nav">
         <a href="#problem" id="nav-problem" class="nav-link">The Problem</a>
         <a href="#how-it-works" id="nav-how-it-works" class="nav-link">First Loop</a>
-        <a href="#seizure" id="nav-seizure" class="nav-link">Security Specs</a>
         <a href="#audiences" id="nav-audiences" class="nav-link">Target Personas</a>
         <a href="#manifesto" id="nav-manifesto" class="nav-link">Manifesto</a>
       </nav>
       <div class="nav-actions">
         <a href="#manifesto" class="btn btn-secondary" id="nav-btn-manifesto">Read Memo</a>
-        <a href="#workspace-sandbox" class="btn btn-primary btn-glow" id="nav-btn-launch">Launch Workspace</a>
+        <a href="#hero-access-form" class="btn btn-primary btn-glow" id="nav-btn-launch">Get Early Access</a>
       </div>
     </div>
   </header>
@@ -69,7 +68,6 @@
       <div class="grid-background"></div>
       <div class="hero-content">
         <div class="hero-left">
-          <div class="hero-tag" id="hero-tag-intro">INTRODUCING INNERSCRIPT</div>
           <h1 class="hero-title" id="hero-main-title">
             Your writing remembers <br><em>more than you do.</em>
           </h1>
@@ -77,37 +75,20 @@
             InnerScript is a private diary and AI memory companion that turns years of journals, notes, relationships,
             ideas, and personal writing into source-backed self-understanding.
           </p>
-          <div class="hero-cta-group">
-            <a href="#workspace-sandbox" class="btn btn-primary btn-lg btn-glow" id="hero-cta-sandbox">Begin
-              Reflection</a>
-            <a href="#seizure" class="btn btn-secondary btn-lg" id="hero-cta-security">Verify Cryptography</a>
-          </div>
-
-          <div class="hero-meta-grid">
-            <div class="meta-item">
-              <span class="meta-label">ARCHITECTURE</span>
-              <span class="meta-val">Local-first SQLite</span>
+          <form class="hero-access-form" id="hero-access-form" data-interest-form data-source="hero">
+            <h2 class="hero-access-title">Be first to test the private memory companion.</h2>
+            <div class="hero-access-row">
+              <label class="sr-only" for="hero-access-email">Email address</label>
+              <input type="email" id="hero-access-email" name="email" autocomplete="email" placeholder="you@example.com" required />
+              <button type="submit" class="hero-access-button">
+                <span aria-hidden="true" class="hero-access-icon"></span>
+                <span>Get Early Access</span>
+              </button>
             </div>
-            <div class="meta-item">
-              <span class="meta-label">ENCRYPTION</span>
-              <span class="meta-val">AES-GCM-256</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">AI ENGINE</span>
-              <span class="meta-val">Source-Backed RAG</span>
-            </div>
-          </div>
+            <p class="hero-access-note">No spam. Just alpha access and meaningful product updates.</p>
+          </form>
         </div>
 
-        <div class="hero-right">
-          <div class="image-wrapper" id="hero-statue-container">
-            <img src="/statue.png"
-              alt="Pondering Socrates Statue with digital matrix overlay representing memory retrieval"
-              class="hero-statue" id="statue-image" />
-            <canvas id="hero-3d-canvas"></canvas>
-            <div class="statue-glow"></div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -117,12 +98,12 @@
       <div class="sandbox-header">
         <div class="sandbox-title-area">
           <h2 class="section-title-sm">INTERACTIVE WORKSPACE</h2>
-          <p class="section-subtitle">Experience how streams of thought connect semantically to your past.</p>
+          <p class="section-subtitle">Experience how a current thought can reconnect with what you wrote before.</p>
         </div>
         <div class="sandbox-controls">
-          <button class="btn btn-tab active" id="btn-demo-anxiety">Anxiety Loop Demo</button>
-          <button class="btn btn-tab" id="btn-demo-idea">Buried Idea Demo</button>
-          <button class="btn btn-tab" id="btn-demo-reset">Reset Workspace</button>
+          <button class="btn btn-tab active" id="btn-demo-anxiety" aria-label="Run anxiety loop demo">Anxiety</button>
+          <button class="btn btn-tab" id="btn-demo-idea" aria-label="Run buried idea demo">Buried Idea</button>
+          <button class="btn btn-tab" id="btn-demo-reset" aria-label="Reset workspace demo">Reset</button>
         </div>
       </div>
 
@@ -173,134 +154,15 @@
             </div>
 
             <div class="citations-container" id="active-citations-container">
-              <div class="citation-title">SOURCE MEMORIES FOUND (RAG)</div>
+              <div class="citation-title">RELATED MEMORIES FOUND</div>
 
               <div class="citation-list" id="citation-list-wrapper">
                 <!-- Dynamic citations will be injected here -->
                 <div class="citation-empty-state" id="citation-empty">
-                  Write in the journal to trigger semantic recall.
+                  Write in the journal to surface related memories.
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Semantic Graph View (Logseq Graph Inspiration) -->
-      <div class="graph-viewer-card" id="sandbox-graph-card">
-        <div class="graph-header">
-          <div class="graph-title-group">
-            <span class="pulse-green"></span>
-            <h4>LOCAL MEMORY GRAPH (ACTIVE SEMANTIC RELATIONS)</h4>
-          </div>
-          <div class="graph-stats">Nodes: 124 | Links: 341 | Sparsity: 0.12</div>
-        </div>
-        <div class="graph-container-wrapper">
-          <svg class="semantic-graph" id="memory-graph-svg" viewBox="0 0 800 220">
-            <!-- Grid Background pattern inside SVG -->
-            <defs>
-              <pattern id="graph-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(227,226,227,0.03)" stroke-width="1" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#graph-grid)" />
-
-            <!-- SVG Graph Connections -->
-            <g id="graph-links"></g>
-            <!-- SVG Graph Nodes -->
-            <g id="graph-nodes"></g>
-          </svg>
-        </div>
-      </div>
-    </section>
-
-    <!-- FBI-STYLE SECURITY WARNING ("SOVEREIGN SEIZURE" PANEL) -->
-    <section class="seizure-section" id="seizure">
-      <div class="section-divider-line"></div>
-      <div class="seizure-banner">
-        <div class="seizure-header-strip">
-          <div class="agencies-row">
-            <span class="agency-tag">LOCAL STORAGE</span>
-            <span class="agency-separator">•</span>
-            <span class="agency-tag">AES-256 SYMMETRIC</span>
-            <span class="agency-separator">•</span>
-            <span class="agency-tag">ZERO CORPORATE CLOUD</span>
-            <span class="agency-separator">•</span>
-            <span class="agency-tag">P2P ENCRYPTED SYNC</span>
-          </div>
-        </div>
-
-        <div class="seizure-body">
-          <div class="seizure-badge-row">
-            <!-- Local Storage Seal SVG -->
-            <div class="seal-container" id="seal-local">
-              <svg width="80" height="80" viewBox="0 0 100 100" class="seal-svg">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#e05a5a" stroke-width="2" />
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#e05a5a" stroke-width="0.5" stroke-dasharray="4 2" />
-                <path d="M50 20 L75 35 L75 65 L50 80 L25 65 L25 35 Z" fill="none" stroke="#e05a5a" stroke-width="2" />
-                <rect x="42" y="40" width="16" height="18" rx="2" fill="none" stroke="#e05a5a" stroke-width="2" />
-                <path d="M46 40 V34 A4 4 0 0 1 54 34 V40" fill="none" stroke="#e05a5a" stroke-width="2" />
-                <text x="50" y="88" font-size="6" text-anchor="middle" fill="#e05a5a" font-family="monospace"
-                  letter-spacing="1">LOCAL-FIRST</text>
-              </svg>
-            </div>
-
-            <!-- Cryptography Seal SVG -->
-            <div class="seal-container" id="seal-crypto">
-              <svg width="80" height="80" viewBox="0 0 100 100" class="seal-svg">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#b1c5ff" stroke-width="2" />
-                <path d="M35 50 Q50 30 65 50 Q50 70 35 50 Z" fill="none" stroke="#b1c5ff" stroke-width="1.5" />
-                <circle cx="50" cy="50" r="8" fill="none" stroke="#b1c5ff" stroke-width="2" />
-                <line x1="50" y1="15" x2="50" y2="85" stroke="#b1c5ff" stroke-dasharray="3 3" />
-                <line x1="15" y1="50" x2="85" y2="50" stroke="#b1c5ff" stroke-dasharray="3 3" />
-                <text x="50" y="88" font-size="6" text-anchor="middle" fill="#b1c5ff" font-family="monospace"
-                  letter-spacing="1">AES-GCM-256</text>
-              </svg>
-            </div>
-
-            <!-- Open Evaluation Seal SVG -->
-            <div class="seal-container" id="seal-eval">
-              <svg width="80" height="80" viewBox="0 0 100 100" class="seal-svg">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="#dcc661" stroke-width="2" />
-                <path d="M30 40 L50 25 L70 40 L70 70 L30 70 Z" fill="none" stroke="#dcc661" stroke-width="1.5" />
-                <path d="M40 50 L47 57 L60 42" fill="none" stroke="#dcc661" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round" />
-                <text x="50" y="88" font-size="6" text-anchor="middle" fill="#dcc661" font-family="monospace"
-                  letter-spacing="1">EVALUATED</text>
-              </svg>
-            </div>
-          </div>
-
-          <h2 class="seizure-title" id="seizure-warning-headline">
-            NOTICE: THIS WORKSPACE IS CRYPTOGRAPHICALLY SEIZED BY THE SOVEREIGN USER
-          </h2>
-
-          <p class="seizure-paragraph">
-            All journals, notes, relations, and personal logs stored within this instance have been encrypted under
-            absolute zero-knowledge security. Under the laws of local data preservation, no commercial platform, LLM web
-            scraper, corporate server, or central hosting node has permission to access, store, or run processing
-            pipelines on this database.
-          </p>
-
-          <div class="seizure-warning-boxes">
-            <div class="seizure-box alert-red" id="alert-box-sovereignty">
-              <h5>USER DATA SOVEREIGNTY</h5>
-              <p>Data exists entirely on your machine. Databases are stored as simple, standard SQLite or plaintext
-                Markdown, leaving no proprietary footprints.</p>
-            </div>
-            <div class="seizure-box alert-blue" id="alert-box-evaluation">
-              <h5>SOURCE-BACKED AI GUARANTEES</h5>
-              <p>Retrieval-Augmented Generation operates inside your privacy sandbox. When InnerScript claims a pattern
-                exists, it points to a cryptographically validated local source file.</p>
-            </div>
-          </div>
-
-          <div class="seizure-footer-info">
-            <span>SECURITY PROTOCOL: LOCALHOST-ONLY SYNC</span>
-            <span class="separator">|</span>
-            <span>AES-256-GCM SYMMETRIC SESSION KEYS</span>
-            <span class="separator">|</span>
-            <span>VERIFIED COMPILE: SHA-256 VALIDATED</span>
           </div>
         </div>
       </div>
@@ -342,7 +204,7 @@
               </div>
               <div class="bullet-node level-2">
                 <span class="bullet"></span>
-                <div class="bullet-content">No central semantic layer to link ideas over time.</div>
+                <div class="bullet-content">No simple way to connect ideas over time.</div>
               </div>
               <div class="bullet-node level-1">
                 <span class="bullet"></span>
@@ -399,7 +261,7 @@
             <li>
               <div class="list-bullet"></div>
               <div class="list-content">
-                <strong>Save reliably</strong>: Instantly commit entries to localized encrypted database.
+                <strong>Save reliably</strong>: Instantly keep entries in a local journal archive.
               </div>
             </li>
             <li>
@@ -412,10 +274,10 @@
           </ul>
         </div>
 
-        <!-- Long-Term Loop: Semantic Retrieval -->
+        <!-- Long-Term Loop: Personal Recall -->
         <div class="loop-card" id="loop-card-long">
           <div class="loop-number">LOOP_02</div>
-          <h3>The Long-Term Semantic Loop</h3>
+          <h3>The Long-Term Memory Loop</h3>
           <p class="loop-desc">Turning years of archives into a source-backed mirror of the self over decades.</p>
 
           <ul class="outliner-style-list">
@@ -428,13 +290,13 @@
             <li>
               <div class="list-bullet"></div>
               <div class="list-content">
-                <strong>Local Chunking & Embedding</strong>: Compute semantic nodes locally in the background.
+                <strong>Organized Memory</strong>: Turn older notes into a browsable history of recurring themes.
               </div>
             </li>
             <li>
               <div class="list-bullet"></div>
               <div class="list-content">
-                <strong>Semantic Search & Cite</strong>: Query your past in natural language and receive answers with
+                <strong>Ask and Cite</strong>: Ask your past in natural language and receive answers with
                 precise sentence citations.
               </div>
             </li>
@@ -474,24 +336,24 @@
               <span class="persona-tag">OPEN TO COLLABORATION</span>
               <h3>Let's build emotionally serious software.</h3>
               <p>
-                InnerScript is looking for software engineers, product thinkers, and cryptographers who care about
-                personal data systems, sovereign AI, and tools for thought.
+                InnerScript is looking for software engineers, product thinkers, and designers who care about
+                personal data systems, local AI, and tools for thought.
               </p>
               <p class="text-muted">
-                We are building local-first sync systems, custom SQLite semantic search index structures, and evaluation
-                harnesses to test AI grounding against highly subjective personal documents. If you care about building
-                systems that will last a lifetime, we should talk.
+                We are building a calm writing workspace that helps people revisit older notes, recognize recurring
+                patterns, and keep their archive portable. If you care about building systems that will last a lifetime,
+                we should talk.
               </p>
               <a href="#manifesto" class="btn btn-primary" id="btn-collab-contact">Get in Touch</a>
             </div>
             <div class="persona-specs">
               <div class="spec-list-item">
                 <span class="spec-lbl">INTERESTS:</span>
-                <span class="spec-val">CRDTs, SQLite, Local AI, Vector DBs</span>
+                <span class="spec-val">Writing tools, personal archives, reflective AI</span>
               </div>
               <div class="spec-list-item">
                 <span class="spec-lbl">PHILOSOPHY:</span>
-                <span class="spec-val">No ads, no data mining, sovereign files</span>
+                <span class="spec-val">No ads, no data mining, user-owned files</span>
               </div>
               <div class="spec-list-item">
                 <span class="spec-lbl">LICENSING:</span>
@@ -505,32 +367,31 @@
         <div class="audience-card" id="persona-employers">
           <div class="persona-grid">
             <div class="persona-text">
-              <span class="persona-tag">TECHNICAL PROWESS</span>
-              <h3>An engineering depth review.</h3>
+              <span class="persona-tag">PRODUCT DEPTH</span>
+              <h3>A thoughtful product review.</h3>
               <p>
-                For recruiters and engineering leaders: InnerScript shows how we handle complex system engineering
-                problems.
+                For recruiters and product leaders: InnerScript shows how we shape a focused, emotionally serious
+                product around a real user need.
               </p>
               <p class="text-muted">
-                The application architecture implements custom chunking strategies (handling nested outliner lists),
-                hybrid retrieval (BM25 token lookup merged with cosine similarity on local ONNX embeddings), strict
-                data-leakage sanitization, and automated grounding validation.
+                The product is designed around a simple promise: help people write, revisit what they have already
+                said, and ground every reflection in the user's own words.
               </p>
               <a href="https://github.com" target="_blank" class="btn btn-secondary" id="btn-view-repo">Explore
                 Repository</a>
             </div>
             <div class="persona-specs">
               <div class="spec-list-item">
-                <span class="spec-lbl">LANGUAGES:</span>
-                <span class="spec-val">TypeScript, Rust, SQL</span>
+                <span class="spec-lbl">FOCUS:</span>
+                <span class="spec-val">Calm writing, memory, reflection</span>
               </div>
               <div class="spec-list-item">
-                <span class="spec-lbl">RAG STACK:</span>
-                <span class="spec-val">SQLite-Vec, Minhash Deduplication</span>
+                <span class="spec-lbl">PROMISE:</span>
+                <span class="spec-val">Source-backed personal insight</span>
               </div>
               <div class="spec-list-item">
-                <span class="spec-lbl">SECURITY:</span>
-                <span class="spec-val">WASM Sandbox, Safe Tokenizers</span>
+                <span class="spec-lbl">EXPERIENCE:</span>
+                <span class="spec-val">Distraction-free, portable, durable</span>
               </div>
             </div>
           </div>
@@ -576,38 +437,36 @@
     <section class="specs-section" id="specifications">
       <div class="section-divider-line"></div>
       <div class="specs-header">
-        <h2 class="editorial-title" id="specs-title">System Specifications</h2>
-        <p class="section-subtitle">Technical blueprint of the InnerScript local-first memory companion.</p>
+        <h2 class="editorial-title" id="specs-title">Product Principles</h2>
+        <p class="section-subtitle">The ideas behind a calmer personal memory companion.</p>
       </div>
 
       <div class="bento-grid">
-        <div class="bento-card col-2" id="spec-card-privacy">
-          <div class="bento-label">01 / ENCRYPTION LAYER</div>
-          <h4>AES-GCM-256 Envelope Encryption</h4>
-          <p>Database pages are cryptographically protected on disk. Decryption keys reside inside your operating
-            system's native keychain (Keychain Access / Secret Service), never in memory or configuration files.</p>
+        <div class="bento-card col-2" id="spec-card-local-store">
+          <div class="bento-label">01 / OWN YOUR WRITING</div>
+          <h4>Plain, Portable Storage</h4>
+          <p>Entries are organized around durable, portable files, so your archive remains easy to inspect, export, and
+            move between tools.</p>
         </div>
 
-        <div class="bento-card" id="spec-card-embedding">
-          <div class="bento-label">02 / LOCAL RETRIEVAL</div>
-          <h4>On-Device Vector Search</h4>
-          <p>Runs lightweight, localized Transformer model tokenizers via WASM. Vector computation is 100% offline,
-            keeping sensitive memory files off corporate GPU clusters.</p>
+        <div class="bento-card" id="spec-card-memory">
+          <div class="bento-label">02 / REMEMBER BETTER</div>
+          <h4>Contextual Recall</h4>
+          <p>As you write, InnerScript can surface related moments from your archive so reflections feel specific,
+            grounded, and useful.</p>
         </div>
 
         <div class="bento-card" id="spec-card-import">
-          <div class="bento-label">03 / ARCHIVE INGESTION</div>
-          <h4>Multi-source Importer</h4>
-          <p>Ingests DayOne JSON exports, Apple Notes database copies, and directories of markdown files. Automatically
-            deduplicates entries and parses historical timestamps.</p>
+          <div class="bento-label">03 / BRING YOUR HISTORY</div>
+          <h4>Archive Import</h4>
+          <p>Bring in older journals and notes from the places you already write, then keep them organized by time and
+            source.</p>
         </div>
 
         <div class="bento-card col-2" id="spec-card-evaluation">
-          <div class="bento-label">04 / ALIGNMENT EVALUATION</div>
-          <h4>Grounding Verification Harness</h4>
-          <p>InnerScript features a local verification framework that scans generated reflections. If a reflection makes
-            an assertion about you that cannot be backed by a highlighted sentence citation in your database, it is
-            automatically flagged and filtered.</p>
+          <div class="bento-label">04 / STAY GROUNDED</div>
+          <h4>Source-Backed Reflections</h4>
+          <p>If a reflection makes an assertion about you, it should point back to the exact writing that supports it.</p>
         </div>
       </div>
     </section>
@@ -626,12 +485,12 @@
             mine your deepest memories to sell ads or train corporate base models.
           </p>
           <p>
-            I believe there is room for software that behaves like a quiet study. An archive that is secure, local,
+            I believe there is room for software that behaves like a quiet study. An archive that is local,
             completely owned by you, and designed to help you think rather than keep you scrolling.
           </p>
           <p>
             InnerScript is an exploration of this idea. I am looking for collaborators, system engineers, designers, and
-            testers who want to work on a privacy-sovereign memory system.
+            testers who want to work on a local-first memory system.
           </p>
           <p>If this resonates with you, let's build this together.</p>
           <p class="letter-sign">Joel<br><span class="title">Creator, InnerScript</span></p>
@@ -639,35 +498,17 @@
 
         <!-- Collaboration Sign up / Email form -->
         <div class="collab-form-box" id="collab-inquiry-box">
-          <h4 class="form-title">Submit a Collaboration Inquiry</h4>
-          <form class="manifesto-form" id="manifesto-collab-form"
-            onsubmit="event.preventDefault(); alert('Thank you for your interest! Inquiries are saved to local-first simulation.');">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="collab-name">Your Name</label>
-                <input type="text" id="collab-name" name="name" placeholder="Marcus Aurelius" required />
-              </div>
-              <div class="form-group">
-                <label for="collab-email">Your Email</label>
-                <input type="email" id="collab-email" name="email" placeholder="marcus@stoic.edu" required />
-              </div>
+          <form class="collab-access-form" id="manifesto-collab-form" data-interest-form data-source="collaboration">
+            <h4 class="collab-access-title">Join the quiet study.</h4>
+            <div class="collab-access-row">
+              <label class="sr-only" for="collab-email">Email address</label>
+              <input type="email" id="collab-email" name="email" autocomplete="email" placeholder="you@example.com" required />
+              <button type="submit" class="collab-access-button">
+                <span aria-hidden="true" class="hero-access-icon"></span>
+                <span>Build with us</span>
+              </button>
             </div>
-            <div class="form-group">
-              <label for="collab-role">What are you interested in?</label>
-              <select id="collab-role" name="role">
-                <option value="builder">System Engineering (Rust / SQLite)</option>
-                <option value="designer">UX / Typography Design</option>
-                <option value="researcher">AI Grounding & RAG Systems</option>
-                <option value="journaler">Testing & General Journaling</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="collab-message">Tell me about your relationship with journaling/software</label>
-              <textarea id="collab-message" name="message" rows="4"
-                placeholder="I care about privacy-focused markdown archives..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block btn-glow" id="btn-submit-inquiry">Send
-              Inquiry</button>
+            <p class="collab-access-note">For builders, designers, and journalers who want to shape a calmer memory workspace.</p>
           </form>
         </div>
       </div>
@@ -677,32 +518,10 @@
 
   <!-- FOOTER -->
   <footer class="app-footer" id="main-footer">
-    <div class="footer-container">
-      <div class="footer-left">
-        <div class="footer-brand">InnerScript<span>.in</span></div>
-        <p class="footer-desc">An exploration in emotionally serious, source-backed personal software. Built locally,
-          verified forever.</p>
-      </div>
-      <div class="footer-links">
-        <div class="link-column">
-          <h5>RESOURCES</h5>
-          <a href="https://github.com" target="_blank" id="footer-link-github">GitHub Repository</a>
-          <a href="#workspace-sandbox" id="footer-link-sandbox">Outliner Sandbox</a>
-          <a href="#seizure" id="footer-link-cryptography">Security Manual</a>
-        </div>
-        <div class="link-column">
-          <h5>ARCHITECTURE</h5>
-          <a href="https://logseq.com" target="_blank" rel="noopener noreferrer" id="footer-link-logseq">Logseq.com</a>
-          <a href="https://sqlite.org" target="_blank" rel="noopener noreferrer" id="footer-link-sqlite">SQLite Core</a>
-          <a href="https://w3c.github.io/local-font-access/" target="_blank" rel="noopener noreferrer"
-            id="footer-link-localfont">Local-first API</a>
-        </div>
-      </div>
-    </div>
     <div class="footer-bottom">
       <div class="copyright">&copy; 2026 InnerScript.in. All local rights reserved by the respective instance owners.
       </div>
-      <div class="crypt-stamp">LOCAL ARCHIVE COMPLIANT</div>
+      <a href="#hero" class="crypt-stamp">Go to top</a>
     </div>
   </footer>
 
