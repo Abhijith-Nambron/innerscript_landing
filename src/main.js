@@ -37,6 +37,42 @@ const DEMO_DATA = {
         text: "Researching better outlines for long-term journaling. The structure should stay simple enough to understand years later."
       }
     ]
+  },
+  relationship: {
+    text: "I keep replaying that conversation and wondering why a small comment felt so personal...",
+    childText: "Maybe it touched the old fear of being dismissed before I finish explaining myself.",
+    triggerIndex: 48,
+    reflection: "This resembles earlier entries about feeling <em>dismissed in close conversations</em>. Is the current hurt about this comment, or the older pattern it reminded you of?",
+    citations: [
+      {
+        date: "NOVEMBER 21, 2025",
+        score: "strong match",
+        text: "Argument after dinner. I reacted less to the words and more to the feeling that my <mark>point was being waved away</mark>."
+      },
+      {
+        date: "MAY 09, 2025",
+        score: "related memory",
+        text: "Noticed I get defensive when someone interrupts before I can finish. Need to separate interruption from rejection."
+      }
+    ]
+  },
+  energy: {
+    text: "My focus collapsed again after three packed meeting days, even though the work itself was going well...",
+    childText: "This feels less like laziness and more like ignoring the recovery pattern I already know.",
+    triggerIndex: 54,
+    reflection: "You've logged this <em>meeting-heavy exhaustion pattern</em> several times. Would a protected recovery block prevent the next crash?",
+    citations: [
+      {
+        date: "JANUARY 17, 2026",
+        score: "strong match",
+        text: "Great progress early in the week, then no energy by Thursday after back-to-back calls. Need <mark>one quiet morning after meeting clusters</mark>."
+      },
+      {
+        date: "OCTOBER 03, 2025",
+        score: "related memory",
+        text: "Focus returned after canceling two optional syncs and spending the morning writing alone."
+      }
+    ]
   }
 };
 
@@ -141,15 +177,15 @@ function highlightTriggeredPhrases(data) {
       const len = 'anxiety about product alignment'.length;
       textField.innerHTML = 
         text.substring(0, start) + 
-        `<span style="color: var(--color-teal); background-color: var(--color-teal-low); border-bottom: 1px dashed var(--color-teal); padding: 0 2px; border-radius: 2px;">` + 
+        `<span style="color: var(--color-blue); background-color: rgba(177, 197, 255, 0.08); border-bottom: 1px dashed var(--color-blue); padding: 0 2px; border-radius: 2px;">` + 
         text.substring(start, start + len) + 
         `</span>` + 
         text.substring(start + len);
     }
   } else if (currentDemo === 'idea') {
-    const start = text.indexOf('peer-to-peer sync engine');
+    const start = text.indexOf('notes connected across devices');
     if (start !== -1) {
-      const len = 'peer-to-peer sync engine'.length;
+      const len = 'notes connected across devices'.length;
       textField.innerHTML = 
         text.substring(0, start) + 
         `<span style="color: var(--color-blue); background-color: rgba(177, 197, 255, 0.05); border-bottom: 1px dashed var(--color-blue); padding: 0 2px; border-radius: 2px;">` + 
@@ -157,7 +193,23 @@ function highlightTriggeredPhrases(data) {
         `</span>` + 
         text.substring(start + len);
     }
+  } else if (currentDemo === 'relationship') {
+    highlightPhrase(text, 'small comment felt so personal', 'var(--color-blue)', 'rgba(177, 197, 255, 0.08)');
+  } else if (currentDemo === 'energy') {
+    highlightPhrase(text, 'focus collapsed again', 'var(--color-gold)', 'rgba(220, 198, 97, 0.08)');
   }
+}
+
+function highlightPhrase(text, phrase, color, backgroundColor) {
+  const start = text.indexOf(phrase);
+  if (start === -1) return;
+
+  textField.innerHTML =
+    text.substring(0, start) +
+    `<span style="color: ${color}; background-color: ${backgroundColor}; border-bottom: 1px dashed ${color}; padding: 0 2px; border-radius: 2px;">` +
+    text.substring(start, start + phrase.length) +
+    `</span>` +
+    text.substring(start + phrase.length);
 }
 
 // 4. RETRIEVAL AND INTERACTIVE UI UPDATES
@@ -171,10 +223,10 @@ function triggerSemanticRetrieval(data) {
   data.citations.forEach(cit => {
     const card = document.createElement('div');
     card.className = 'citation-card';
-    card.style.borderLeftColor = currentDemo === 'anxiety' ? 'var(--color-teal)' : 'var(--color-gold)';
+    card.style.borderLeftColor = currentDemo === 'energy' ? 'var(--color-gold)' : 'var(--color-blue)';
     card.innerHTML = `
       <div class="citation-header">
-        <span class="citation-date" style="color: ${currentDemo === 'anxiety' ? 'var(--color-teal)' : 'var(--color-gold)'}">${cit.date}</span>
+        <span class="citation-date" style="color: ${currentDemo === 'energy' ? 'var(--color-gold)' : 'var(--color-blue)'}">${cit.date}</span>
         <span class="citation-score">${cit.score}</span>
       </div>
       <p class="citation-text">${cit.text}</p>
@@ -276,29 +328,6 @@ function showInterestToast(message) {
   }, 3200);
 }
 
-// 5. PERSONA TABS LOGIC
-function initPersonaSwitcher() {
-  const tabs = document.querySelectorAll('.tab-pill');
-  const cards = document.querySelectorAll('.audience-card');
-  
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const targetId = tab.dataset.target;
-      
-      // Remove active states
-      tabs.forEach(t => t.classList.remove('active'));
-      cards.forEach(c => c.classList.remove('active'));
-      
-      // Add active state to selected
-      tab.classList.add('active');
-      const targetCard = document.getElementById(targetId);
-      if (targetCard) {
-        targetCard.classList.add('active');
-      }
-    });
-  });
-}
-
 // 7. ANIMATIONS ON SCROLL
 function initScrollObserver() {
   const sections = document.querySelectorAll('section');
@@ -326,27 +355,17 @@ function initScrollObserver() {
 
 // 8. SANDBOX CONTROLLERS (DEMO CHOOSER)
 function initSandboxControls() {
-  const btnAnxiety = document.getElementById('btn-demo-anxiety');
-  const btnIdea = document.getElementById('btn-demo-idea');
+  const demoButtons = document.querySelectorAll('[data-demo]');
   const btnReset = document.getElementById('btn-demo-reset');
-  
-  if (btnAnxiety) {
-    btnAnxiety.addEventListener('click', () => {
+
+  demoButtons.forEach((button) => {
+    button.addEventListener('click', () => {
       if (isTyping) return;
-      btnAnxiety.classList.add('active');
-      btnIdea.classList.remove('active');
-      startTypingDemo('anxiety');
+      demoButtons.forEach((btn) => btn.classList.remove('active'));
+      button.classList.add('active');
+      startTypingDemo(button.dataset.demo);
     });
-  }
-  
-  if (btnIdea) {
-    btnIdea.addEventListener('click', () => {
-      if (isTyping) return;
-      btnIdea.classList.add('active');
-      btnAnxiety.classList.remove('active');
-      startTypingDemo('idea');
-    });
-  }
+  });
   
   if (btnReset) {
     btnReset.addEventListener('click', () => {
@@ -356,6 +375,7 @@ function initSandboxControls() {
       childNode.classList.remove('visible');
       childNodeText.textContent = '';
       reflectionPrompt.innerHTML = 'Waiting for thoughts to be recorded...';
+      demoButtons.forEach((btn) => btn.classList.remove('active'));
       citationListWrapper.innerHTML = `
         <div class="citation-empty-state" id="citation-empty">
           Write in the journal to surface related memories.
@@ -370,9 +390,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // Initialize email interest capture forms
   initInterestCaptureForms();
 
-  // Initialize Persona Switcher
-  initPersonaSwitcher();
-  
   // Initialize Sandbox Button Handlers
   initSandboxControls();
   
@@ -422,7 +439,7 @@ function initBackgroundSphere3D() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
   // Create large wireframe sphere
-  const geometry = new THREE.IcosahedronGeometry(7, 3); // Large, moderately detailed sphere
+  const geometry = new THREE.IcosahedronGeometry(7, 4);
   
   // Wireframe material (Periwinkle Blue)
   const lineMat = new THREE.MeshBasicMaterial({
@@ -444,12 +461,6 @@ function initBackgroundSphere3D() {
   const spherePoints = new THREE.Points(geometry, pointsMat);
   scene.add(spherePoints);
 
-  // Scroll parallax interaction variables
-  let scrollY = 0;
-  window.addEventListener('scroll', () => {
-    scrollY = window.scrollY;
-  });
-
   const clock = new THREE.Clock();
 
   function animate() {
@@ -461,10 +472,6 @@ function initBackgroundSphere3D() {
     sphereLines.rotation.x = time * 0.01;
     spherePoints.rotation.y = time * 0.02;
     spherePoints.rotation.x = time * 0.01;
-
-    // Parallax scroll reaction (slide sphere upwards as user scrolls)
-    sphereLines.position.y = scrollY * 0.003;
-    spherePoints.position.y = scrollY * 0.003;
 
     renderer.render(scene, camera);
   }

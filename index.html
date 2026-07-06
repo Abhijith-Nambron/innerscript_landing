@@ -28,11 +28,11 @@
     content="Turn years of journals, notes, and personal writing into source-backed self-understanding. Local-first and distraction-free." />
   <meta property="twitter:image" content="/statue.png" />
 
-  <!-- Google Fonts: Instrument Serif, Inter, & Fira Code (monospaced) -->
+  <!-- Google Fonts: Inter & Fira Code (monospaced) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Main Stylesheet -->
@@ -45,7 +45,6 @@
     <div class="header-container">
       <a href="/" class="brand" id="brand-logo">
         <span class="brand-text">InnerScript</span>
-        <span class="brand-dot">.in</span>
       </a>
       <nav class="nav-links" id="main-nav">
         <a href="#problem" id="nav-problem" class="nav-link">The Problem</a>
@@ -54,7 +53,6 @@
         <a href="#manifesto" id="nav-manifesto" class="nav-link">Manifesto</a>
       </nav>
       <div class="nav-actions">
-        <a href="#manifesto" class="btn btn-secondary" id="nav-btn-manifesto">Read Memo</a>
         <a href="#hero-access-form" class="btn btn-primary btn-glow" id="nav-btn-launch">Get Early Access</a>
       </div>
     </div>
@@ -76,7 +74,6 @@
             ideas, and personal writing into source-backed self-understanding.
           </p>
           <form class="hero-access-form" id="hero-access-form" data-interest-form data-source="hero">
-            <h2 class="hero-access-title">Be first to test the private memory companion.</h2>
             <div class="hero-access-row">
               <label class="sr-only" for="hero-access-email">Email address</label>
               <input type="email" id="hero-access-email" name="email" autocomplete="email" placeholder="you@example.com" required />
@@ -85,7 +82,6 @@
                 <span>Get Early Access</span>
               </button>
             </div>
-            <p class="hero-access-note">No spam. Just alpha access and meaningful product updates.</p>
           </form>
         </div>
 
@@ -97,12 +93,13 @@
       <div class="section-divider-line"></div>
       <div class="sandbox-header">
         <div class="sandbox-title-area">
-          <h2 class="section-title-sm">INTERACTIVE WORKSPACE</h2>
           <p class="section-subtitle">Experience how a current thought can reconnect with what you wrote before.</p>
         </div>
         <div class="sandbox-controls">
-          <button class="btn btn-tab active" id="btn-demo-anxiety" aria-label="Run anxiety loop demo">Anxiety</button>
-          <button class="btn btn-tab" id="btn-demo-idea" aria-label="Run buried idea demo">Buried Idea</button>
+          <button class="btn btn-tab active" id="btn-demo-anxiety" data-demo="anxiety" aria-label="Run anxiety loop demo">Anxiety</button>
+          <button class="btn btn-tab" id="btn-demo-idea" data-demo="idea" aria-label="Run buried idea demo">Buried Idea</button>
+          <button class="btn btn-tab" id="btn-demo-relationship" data-demo="relationship" aria-label="Run relationship pattern demo">Relationship</button>
+          <button class="btn btn-tab" id="btn-demo-energy" data-demo="energy" aria-label="Run energy pattern demo">Energy</button>
           <button class="btn btn-tab" id="btn-demo-reset" aria-label="Reset workspace demo">Reset</button>
         </div>
       </div>
@@ -171,67 +168,18 @@
     <!-- THE CORE PROBLEM & THESIS (Logseq editorial styling) -->
     <section class="problem-section" id="problem">
       <div class="section-divider-line"></div>
-      <div class="section-grid">
-        <div class="grid-left">
-          <h2 class="editorial-title" id="problem-title">The Tragedy of the Silent Archive</h2>
-          <p class="editorial-para-large">
-            You write for years. In paper notebooks, notes apps, private documents, random chats, and scratch drafts.
-          </p>
-          <p class="editorial-para">
-            That writing contains your emotional curves, recurring fears, repeated habits, relationship histories,
-            buried ambitions, contradictions, and solutions to problems you solved years ago but have now forgotten.
-          </p>
-          <p class="editorial-para text-muted">
-            But because notes are stored in linear lists or disconnected piles, 99% of your journals become a silent
-            cemetery. You almost never go back to read them. You repeat the same mistakes, ask the same unresolved
-            questions, and suffer from the same alignment loops because you cannot converse with your own long-range
-            memory.
-          </p>
-        </div>
-        <div class="grid-right">
-          <div class="logseq-card" id="problem-logseq-list">
-            <div class="logseq-header-bar">
-              <span class="logseq-dot red"></span>
-              <span class="logseq-dot yellow"></span>
-              <span class="logseq-dot green"></span>
-              <span class="logseq-title">the_problem_statement.md</span>
-            </div>
-            <div class="logseq-outliner-mock">
-              <div class="bullet-node level-1">
-                <span class="bullet"></span>
-                <div class="bullet-content"><strong>Your memory is scattered</strong> Across DayOne, Obsidian, paper,
-                  and Apple Notes</div>
-              </div>
-              <div class="bullet-node level-2">
-                <span class="bullet"></span>
-                <div class="bullet-content">No simple way to connect ideas over time.</div>
-              </div>
-              <div class="bullet-node level-1">
-                <span class="bullet"></span>
-                <div class="bullet-content"><strong>AI wrappers want your data</strong> They send text to public APIs.
-                </div>
-              </div>
-              <div class="bullet-node level-2">
-                <span class="bullet"></span>
-                <div class="bullet-content">They lack a localized privacy boundary.</div>
-              </div>
-              <div class="bullet-node level-2">
-                <span class="bullet"></span>
-                <div class="bullet-content">They generate generic, shallow advice ("therapist-speak").</div>
-              </div>
-              <div class="bullet-node level-1">
-                <span class="bullet"></span>
-                <div class="bullet-content"><strong>No source verification</strong> AI assertions about your patterns
-                  cannot be verified.</div>
-              </div>
-              <div class="bullet-node level-2">
-                <span class="bullet"></span>
-                <div class="bullet-content">If AI says: <em>"You tend to feel anxious in winter,"</em> it must link the
-                  exact December entries to prove it.</div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="problem-centered">
+        <h2 class="editorial-title" id="problem-title">The Tragedy of the Silent Archive</h2>
+        <p class="editorial-para">
+          That writing contains your emotional curves, recurring fears, repeated habits, relationship histories,
+          buried ambitions, contradictions, and solutions to problems you solved years ago but have now forgotten.
+        </p>
+        <p class="editorial-para text-muted">
+          But because notes are stored in linear lists or disconnected piles, 99% of your journals become a silent
+          cemetery. You almost never go back to read them. You repeat the same mistakes, ask the same unresolved
+          questions, and suffer from the same alignment loops because you cannot converse with your own long-range
+          memory.
+        </p>
       </div>
     </section>
 
@@ -312,121 +260,22 @@
       </div>
     </section>
 
-    <!-- AUDIENCE PERSONA SWITCHER -->
+    <!-- AUDIENCE PERSONA SECTION -->
     <section class="audiences-section" id="audiences">
       <div class="section-divider-line"></div>
-      <div class="audience-header">
-        <h2 class="editorial-title" id="audiences-title">Tailored for a Serious Objective</h2>
-        <p class="section-subtitle">InnerScript speaks transparently to builders, employers, and journalers without
-          marketing fluff.</p>
-      </div>
-
-      <div class="audience-tabs-row" id="audience-tab-navigation">
-        <button class="tab-pill active" data-target="persona-collaborators" id="tab-collaborators">Builders &
-          Collaborators</button>
-        <button class="tab-pill" data-target="persona-employers" id="tab-employers">Potential Employers</button>
-        <button class="tab-pill" data-target="persona-journalers" id="tab-journalers">Lay Users & Journalers</button>
-      </div>
-
       <div class="audience-content-area" id="audience-cards-container">
-        <!-- Card 1: Collaborators -->
-        <div class="audience-card active" id="persona-collaborators">
+        <div class="audience-card active" id="persona-journalers">
           <div class="persona-grid">
-            <div class="persona-text">
-              <span class="persona-tag">OPEN TO COLLABORATION</span>
-              <h3>Let's build emotionally serious software.</h3>
-              <p>
-                InnerScript is looking for software engineers, product thinkers, and designers who care about
-                personal data systems, local AI, and tools for thought.
+            <div class="persona-text audience-copy-block">
+              <h3 id="audience-title">Give old notes a usable second life.</h3>
+              <p id="audience-lede">
+                Markdown folders, DayOne exports, Obsidian vaults, and scanned diary fragments deserve more than storage.
               </p>
-              <p class="text-muted">
-                We are building a calm writing workspace that helps people revisit older notes, recognize recurring
-                patterns, and keep their archive portable. If you care about building systems that will last a lifetime,
-                we should talk.
-              </p>
-              <a href="#manifesto" class="btn btn-primary" id="btn-collab-contact">Get in Touch</a>
-            </div>
-            <div class="persona-specs">
-              <div class="spec-list-item">
-                <span class="spec-lbl">INTERESTS:</span>
-                <span class="spec-val">Writing tools, personal archives, reflective AI</span>
-              </div>
-              <div class="spec-list-item">
-                <span class="spec-lbl">PHILOSOPHY:</span>
-                <span class="spec-val">No ads, no data mining, user-owned files</span>
-              </div>
-              <div class="spec-list-item">
-                <span class="spec-lbl">LICENSING:</span>
-                <span class="spec-val">Open source core (AGPL-3.0)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: Employers -->
-        <div class="audience-card" id="persona-employers">
-          <div class="persona-grid">
-            <div class="persona-text">
-              <span class="persona-tag">PRODUCT DEPTH</span>
-              <h3>A thoughtful product review.</h3>
-              <p>
-                For recruiters and product leaders: InnerScript shows how we shape a focused, emotionally serious
-                product around a real user need.
-              </p>
-              <p class="text-muted">
-                The product is designed around a simple promise: help people write, revisit what they have already
-                said, and ground every reflection in the user's own words.
-              </p>
-              <a href="https://github.com" target="_blank" class="btn btn-secondary" id="btn-view-repo">Explore
-                Repository</a>
-            </div>
-            <div class="persona-specs">
-              <div class="spec-list-item">
-                <span class="spec-lbl">FOCUS:</span>
-                <span class="spec-val">Calm writing, memory, reflection</span>
-              </div>
-              <div class="spec-list-item">
-                <span class="spec-lbl">PROMISE:</span>
-                <span class="spec-val">Source-backed personal insight</span>
-              </div>
-              <div class="spec-list-item">
-                <span class="spec-lbl">EXPERIENCE:</span>
-                <span class="spec-val">Distraction-free, portable, durable</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: Journalers -->
-        <div class="audience-card" id="persona-journalers">
-          <div class="persona-grid">
-            <div class="persona-text">
-              <span class="persona-tag">HUMAN FOCUS</span>
-              <h3>For those who write to think.</h3>
-              <p>
-                If you have folders of markdown notes or decades of physical diaries, InnerScript is built to give your
-                words a voice.
-              </p>
-              <p class="text-muted">
-                Unlike therapist replacement apps, we don't diagnose you, give generic advice, or send notification
-                badges to hook your attention. InnerScript acts as a quiet, offline-first study. It helps you see what
-                you wrote so you can make decisions with clarity.
+              <p class="text-muted" id="audience-body">
+                InnerScript makes old writing searchable as lived context. Ask what changed, what repeated, or what you
+                kept avoiding, then inspect the exact lines that support the answer.
               </p>
               <a href="#workspace-sandbox" class="btn btn-primary" id="btn-journal-try">Try Workspace Sandbox</a>
-            </div>
-            <div class="persona-specs">
-              <div class="spec-list-item">
-                <span class="spec-lbl">DESIGN:</span>
-                <span class="spec-val">Minimalist, dark-mode, calming</span>
-              </div>
-              <div class="spec-list-item">
-                <span class="spec-lbl">UTILITIES:</span>
-                <span class="spec-val">Export Markdown/JSON anytime</span>
-              </div>
-              <div class="spec-list-item">
-                <span class="spec-lbl">GUARANTEE:</span>
-                <span class="spec-val">Works offline, forever</span>
-              </div>
             </div>
           </div>
         </div>
@@ -475,7 +324,6 @@
     <section class="manifesto-section" id="manifesto">
       <div class="section-divider-line"></div>
       <div class="manifesto-container">
-        <div class="manifesto-meta">PROJECTMEMO // INNERSCRIPT.IN</div>
         <h2 class="manifesto-title" id="manifesto-main-title">Building emotionally serious software.</h2>
 
         <div class="manifesto-letter">
@@ -498,13 +346,24 @@
 
         <!-- Collaboration Sign up / Email form -->
         <div class="collab-form-box" id="collab-inquiry-box">
+          <div class="collab-copy">
+            <p>
+              InnerScript is looking for software engineers, product thinkers, and designers who care about personal
+              data systems, local AI, and tools for thought.
+            </p>
+            <p>
+              We are building a calm writing workspace that helps people revisit older notes, recognize recurring
+              patterns, and keep their archive portable. If you care about building systems that will last a lifetime,
+              we should talk.
+            </p>
+          </div>
           <form class="collab-access-form" id="manifesto-collab-form" data-interest-form data-source="collaboration">
             <h4 class="collab-access-title">Join the quiet study.</h4>
             <div class="collab-access-row">
               <label class="sr-only" for="collab-email">Email address</label>
               <input type="email" id="collab-email" name="email" autocomplete="email" placeholder="you@example.com" required />
               <button type="submit" class="collab-access-button">
-                <span aria-hidden="true" class="hero-access-icon"></span>
+                <span aria-hidden="true" class="hammer-icon"></span>
                 <span>Build with us</span>
               </button>
             </div>
