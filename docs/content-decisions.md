@@ -30,15 +30,16 @@ The InnerScript team
 - The current workspace/demo section should be framed as a concept preview, not a live interactive product.
 - Do not call the section `Interactive Workspace` unless the section actually behaves like a real workspace.
 - Use `Concept Preview` for the current demo section.
-- Use both intro directions: "See how a current thought could surface older writing that explains it" and "Watch InnerScript turn a private entry into a grounded reflection question."
+- Simplify the preview intro to: "Write a thought. See what it connects to."
 - The current `Product Principles` section feels excessive and is archived/commented out for the V3 pass.
 - The `Give old notes a usable second life` audience/archive section is archived/commented out for the V3 pass.
-- Approved problem copy: "Your old writing holds emotional curves, recurring fears, repeated habits, and relationship histories, but it stopped speaking back."
+- The `Two Loops of Self-Understanding` section is archived/commented out for the V3 pass.
+- Approved problem copy: "Your old writing already maps emotional curves, recurring fears, repeated habits, and relationship histories. It just has no way to answer back. A journal should not become a drawer of dead pages. InnerScript is built to help old entries return as useful context when today's thought needs a longer memory."
 
 ## Signup And Sheet Decisions
 
 - The header CTA should say `Early access`.
-- The hero form CTA should say `Claim early access` with a footnote: `Only 100 spots available.`
+- The hero form CTA should say `Claim early access` with a footnote: `First 100 signups get the Founder Plan.`
 - Current form wiring posts these fields to Google Apps Script: `email`, `source`, `timestamp`, `userAgent`.
 - Use source-based tracking for now: `hero_early_bird` and `collaboration_early_bird`.
 - The first-100 cutoff should happen in the Sheet or Apps Script because the static page cannot reliably know how many signups already exist.

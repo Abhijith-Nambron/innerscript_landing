@@ -49,7 +49,6 @@
       <nav class="nav-links" id="main-nav">
         <a href="#problem" id="nav-problem" class="nav-link">The Problem</a>
         <a href="#workspace-sandbox" id="nav-preview" class="nav-link">Concept Preview</a>
-        <a href="#how-it-works" id="nav-how-it-works" class="nav-link">First Loop</a>
         <a href="#manifesto" id="nav-manifesto" class="nav-link">Manifesto</a>
       </nav>
       <div class="nav-actions">
@@ -82,7 +81,7 @@
                 <span>Claim early access</span>
               </button>
             </div>
-            <p class="hero-access-note">Only 100 spots available.</p>
+            <p class="hero-access-note">First 100 signups get the Founder Plan.</p>
           </form>
         </div>
 
@@ -95,14 +94,13 @@
       <div class="sandbox-header">
         <div class="sandbox-title-area">
           <p class="section-kicker">Concept Preview</p>
-          <p class="section-subtitle">See how a current thought could surface older writing that explains it.</p>
-          <p class="section-subtitle text-muted">Watch InnerScript turn a private entry into a grounded reflection question.</p>
+          <p class="section-subtitle">Write a thought. See what it connects to.</p>
         </div>
         <div class="sandbox-controls">
           <button class="btn btn-tab active" id="btn-demo-anxiety" data-demo="anxiety" aria-label="Run anxiety loop demo">Anxiety</button>
-          <button class="btn btn-tab" id="btn-demo-idea" data-demo="idea" aria-label="Run buried idea demo">Buried Idea</button>
-          <button class="btn btn-tab" id="btn-demo-relationship" data-demo="relationship" aria-label="Run relationship pattern demo">Relationship</button>
-          <button class="btn btn-tab" id="btn-demo-energy" data-demo="energy" aria-label="Run energy pattern demo">Energy</button>
+          <button class="btn btn-tab" id="btn-demo-idea" data-demo="idea" aria-label="Run idea demo">Idea</button>
+          <button class="btn btn-tab" id="btn-demo-relationship" data-demo="relationship" aria-label="Run relationship demo">Relationship</button>
+          <button class="btn btn-tab" id="btn-demo-energy" data-demo="energy" aria-label="Run energy demo">Energy</button>
           <button class="btn btn-tab" id="btn-demo-reset" aria-label="Reset workspace demo">Reset</button>
         </div>
       </div>
@@ -140,21 +138,21 @@
           <div class="panel-header">
             <div class="panel-title">
               <span class="icon-reflection"></span>
-              <span>Self-Reflective Mirror</span>
+              <span>Reflection</span>
             </div>
-            <div class="panel-tag">AI RETRIEVAL ACTIVE</div>
+            <div class="panel-tag">SOURCES ACTIVE</div>
           </div>
 
           <div class="reflection-content">
             <div class="reflection-card" id="active-reflection-card">
-              <div class="card-badge">GROUNDED REFLECTION QUESTION</div>
+              <div class="card-badge">REFLECTION QUESTION</div>
               <h3 class="reflection-question" id="reflection-prompt">Waiting for thoughts to be recorded...</h3>
               <p class="reflection-meta">InnerScript analyzes active entries in real-time without sending data to public
                 clouds.</p>
             </div>
 
             <div class="citations-container" id="active-citations-container">
-              <div class="citation-title">RELATED MEMORIES FOUND</div>
+              <div class="citation-title">RELATED WRITING</div>
 
               <div class="citation-list" id="citation-list-wrapper">
                 <!-- Dynamic citations will be injected here -->
@@ -174,14 +172,17 @@
       <div class="problem-centered">
         <h2 class="editorial-title" id="problem-title">The Tragedy of the Silent Archive</h2>
         <p class="editorial-para">
-          Your old writing holds emotional curves, recurring fears, repeated habits, and relationship histories, but it
-          stopped speaking back.
+          Your old writing already maps emotional curves, recurring fears, repeated habits, and relationship histories.
+          It just has no way to answer back.
+        </p>
+        <p class="editorial-para text-muted">
+          A journal should not become a drawer of dead pages. InnerScript is built to help old entries return as useful
+          context when today's thought needs a longer memory.
         </p>
       </div>
     </section>
 
-    <!-- THE MIRROR (First Loop & Long Loop detailed) -->
-    <section class="how-it-works-section" id="how-it-works">
+    <section class="how-it-works-section" id="how-it-works" hidden data-archived="two-loops-v3">
       <div class="section-divider-line"></div>
       <div class="how-title-wrapper">
         <h2 class="editorial-title text-center" id="loops-title">Two Loops of Self-Understanding</h2>
@@ -347,17 +348,12 @@
         <div class="collab-form-box" id="collab-inquiry-box">
           <div class="collab-copy">
             <p>
-              InnerScript is looking for software engineers, product thinkers, and designers who care about personal
-              data systems, AI memory, and tools for thought.
-            </p>
-            <p>
-              We are building a calm writing workspace that helps people revisit older notes, recognize recurring
-              patterns, and keep their archive portable. If you care about building systems that will last a lifetime,
-              we should talk.
+              We are building calm AI memory for private writing. If you care about personal data systems and tools for
+              thought, we should talk.
             </p>
           </div>
           <form class="collab-access-form" id="manifesto-collab-form" data-interest-form data-source="collaboration_early_bird">
-            <h4 class="collab-access-title">Join the quiet study.</h4>
+            <h4 class="collab-access-title">Build with us.</h4>
             <div class="collab-access-row">
               <label class="sr-only" for="collab-email">Email address</label>
               <input type="email" id="collab-email" name="email" autocomplete="email" placeholder="you@example.com" required />
@@ -366,7 +362,7 @@
                 <span>Build with us</span>
               </button>
             </div>
-            <p class="collab-access-note">For builders, designers, and journalers who want to shape a calmer memory workspace.</p>
+            <p class="collab-access-note">For people shaping a calmer memory workspace.</p>
           </form>
         </div>
       </div>

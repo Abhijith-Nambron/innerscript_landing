@@ -52,7 +52,7 @@ Best fit if the section should emphasize citations and grounded AI.
 
 ### Option A - Honest Demo
 
-See how a current thought could surface older writing that explains it.
+Write a thought. See what it connects to.
 
 ### Option B - Product Direction
 
@@ -62,13 +62,15 @@ A preview of the product loop: write now, recall the past, inspect the exact lin
 
 Watch how InnerScript could turn a private entry into a grounded reflection question.
 
-Selected V3 direction: use both Option A and Option C.
+Selected V3 direction: use Option A.
 
 ## Problem Section
 
 ### Option A - Compact Archive Problem
 
-Your old writing holds emotional curves, recurring fears, repeated habits, and relationship histories, but it stopped speaking back.
+Your old writing already maps emotional curves, recurring fears, repeated habits, and relationship histories. It just has no way to answer back.
+
+A journal should not become a drawer of dead pages. InnerScript is built to help old entries return as useful context when today's thought needs a longer memory.
 
 ### Option B - Stronger Psychology
 
@@ -138,7 +140,7 @@ Archive/comment out the Product Principles section for now.
 
 Claim early access
 
-Only 100 spots available.
+First 100 signups get the Founder Plan.
 
 Selected for V3 hero CTA.
 
