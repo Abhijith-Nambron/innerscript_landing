@@ -276,6 +276,7 @@ em {
   mask-image: radial-gradient(ellipse at 50% 50%, black 60%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 60%, transparent 100%);
   z-index: 0;
+  pointer-events: none;
 }
 
 .hero-content {

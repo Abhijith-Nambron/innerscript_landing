@@ -106,7 +106,14 @@ const PREVIEW_VARIATIONS = [
         text: 'Maybe I keep postponing it because finishing the first version would make the want visible.'
       }
     ]
-  },
+  }
+];
+
+/*
+ * Archived preview explorations for later review. The live V3 switcher intentionally
+ * keeps three variants: Live Recall, Timeline, and Sources.
+ */
+const ARCHIVED_PREVIEW_VARIATIONS = [
   {
     id: 'pattern-map',
     label: 'Pattern Map',
@@ -202,8 +209,6 @@ function renderPreviewVariation(previewId) {
 function getPreviewMarkup(preview) {
   if (preview.id === 'timeline-replay') return renderTimelinePreview(preview);
   if (preview.id === 'source-stack') return renderSourceStackPreview(preview);
-  if (preview.id === 'pattern-map') return renderPatternMapPreview(preview);
-  if (preview.id === 'before-after') return renderBeforeAfterPreview(preview);
   return renderLiveRecallPreview(preview);
 }
 
@@ -305,6 +310,9 @@ function renderSourceStackPreview(preview) {
   `;
 }
 
+/*
+ * Archived renderers for the removed V3 preview variants.
+ *
 function renderPatternMapPreview(preview) {
   return `
     <div class="preview-composition preview-pattern-layout" data-preview-panel="${preview.id}">
@@ -350,6 +358,7 @@ function renderBeforeAfterPreview(preview) {
     <p class="preview-usage-note">${escapeHtml(preview.note)}</p>
   `;
 }
+ */
 
 function renderCitationCard(citation) {
   return `
@@ -492,6 +501,23 @@ function initScrollObserver() {
   });
 }
 
+function initScrollTopLinks() {
+  document.querySelectorAll('[data-scroll-top]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+
+      if (window.location.hash) {
+        window.history.replaceState(null, document.title, `${window.location.pathname}${window.location.search}`);
+      }
+    });
+  });
+}
+
 // 8. SANDBOX CONTROLLERS (PREVIEW CHOOSER)
 function initSandboxControls() {
   const previewButtons = Array.from(document.querySelectorAll('[data-preview-tab]'));
@@ -529,6 +555,9 @@ window.addEventListener('DOMContentLoaded', () => {
   
   // Initialize Scroll animations
   initScrollObserver();
+
+  // Make footer top links work repeatedly even when the hash is already set.
+  initScrollTopLinks();
   
   // Load Three.js and initialize the subtle hero background.
   loadThreeAndInit3D();
