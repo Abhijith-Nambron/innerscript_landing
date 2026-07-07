@@ -9,8 +9,8 @@ const PREVIEW_VARIATIONS = [
     eyebrow: 'CURRENT THOUGHT',
     title: 'The thought enters. The archive answers.',
     thought: 'I keep returning to the same idea, then pretending it does not matter.',
-    followup: 'Every few months I write around it instead of admitting I still want it.',
-    reflection: 'This resembles older entries where the ambition appears right before you dismiss it as unrealistic. Is the doubt about timing, or about admitting you still want the thing?',
+    followup: 'Every few months I write around it, rename it, and make it sound smaller than it is.',
+    reflection: 'This resembles older entries where the ambition appears right before you dismiss it as unrealistic. Is the doubt about timing, or about admitting you still want the thing enough to start?',
     sources: [
       {
         date: 'MAR 12, 2026',
@@ -21,6 +21,11 @@ const PREVIEW_VARIATIONS = [
         date: 'NOV 05, 2025',
         tag: 'related memory',
         text: 'Listed three reasons the idea would not work, then spent the evening sketching it anyway.'
+      },
+      {
+        date: 'JUN 18, 2025',
+        tag: 'older signal',
+        text: 'If I still care about this next month, I should stop calling it a side thought.'
       }
     ]
   },
@@ -30,7 +35,7 @@ const PREVIEW_VARIATIONS = [
     note: 'Best for showing that old writing has a history, not just search results.',
     title: 'See the pattern move through time.',
     thought: 'The same ambition returned again.',
-    reflection: 'The archive shows a cycle: excitement, dismissal, then a quiet return.',
+    reflection: 'The archive shows a cycle: excitement, dismissal, renaming, then a quiet return.',
     events: [
       {
         date: 'JUN 2025',
@@ -41,6 +46,11 @@ const PREVIEW_VARIATIONS = [
         date: 'NOV 2025',
         title: 'Dismissed, then sketched',
         text: 'The entry argues against the idea while quietly designing the first version.'
+      },
+      {
+        date: 'MAR 2026',
+        title: 'Renamed as a distraction',
+        text: 'You tried to shrink the ambition by calling it a side thought.'
       },
       {
         date: 'TODAY',
@@ -55,7 +65,7 @@ const PREVIEW_VARIATIONS = [
     note: 'Best for making the source-backed promise obvious.',
     title: 'Every reflection can point back to the line.',
     thought: 'Why do I keep coming back to this idea?',
-    reflection: 'Possible pattern: the idea is not random. You repeatedly file it away right after it starts feeling personally important.',
+    reflection: 'Possible pattern: the idea is not random. You repeatedly file it away right after it starts feeling personally important, then return to it with a new name.',
     sources: [
       {
         date: 'MAR 12, 2026',
@@ -71,6 +81,11 @@ const PREVIEW_VARIATIONS = [
         date: 'JUN 18, 2025',
         tag: 'line 22',
         text: 'If I still care about this next month, I should stop calling it a side thought.'
+      },
+      {
+        date: 'APR 02, 2026',
+        tag: 'line 31',
+        text: 'Maybe I keep postponing it because finishing the first version would make the want visible.'
       }
     ]
   },
@@ -80,22 +95,22 @@ const PREVIEW_VARIATIONS = [
     note: 'Best for showing compact self-understanding without long lists.',
     title: 'A private entry becomes a pattern map.',
     thought: 'I keep pretending this ambition is optional, but it keeps coming back.',
-    reflection: 'InnerScript groups the entry into a few grounded patterns you can inspect.',
+    reflection: 'InnerScript groups the entry into grounded patterns without turning one journal line into a diagnosis.',
     patterns: [
       {
         label: 'Buried ambition',
         score: '8 matches',
-        text: 'The same idea returns after quiet periods.'
+        text: 'The same idea returns after quiet periods and transition weeks.'
       },
       {
         label: 'Repeated habit',
         score: '6 matches',
-        text: 'You label it impractical before testing it.'
+        text: 'You label it impractical before testing the smallest version.'
       },
       {
         label: 'Contradiction',
         score: '4 matches',
-        text: 'You dismiss it, then keep designing around it.'
+        text: 'You dismiss it, then keep designing around it in private.'
       }
     ]
   },
@@ -106,13 +121,15 @@ const PREVIEW_VARIATIONS = [
     title: 'From stored writing to speaking context.',
     thought: 'I keep returning to the same idea.',
     before: [
-      'journal-2025-05.md',
-      'dinner-notes.md',
-      'voice-memos.txt'
+      'ideas-i-keep-postponing.md',
+      'late-night-sketches.md',
+      'journal-2026-03.md',
+      'private-notes.txt'
     ],
     after: [
       'This looks like a recurring ambition.',
       'Older entries show excitement followed by self-dismissal.',
+      'One note asks you to stop calling it a side thought.',
       'The exact supporting lines are ready to inspect.'
     ]
   }

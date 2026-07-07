@@ -548,6 +548,10 @@ section {
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
+.preview-live-recall .workspace-panel {
+  height: clamp(520px, 50vw, 650px);
+}
+
 .panel-header {
   padding: 0.75rem 1.25rem;
   border-bottom: 1px solid var(--color-border);
@@ -1667,6 +1671,11 @@ section {
     height: 420px;
   }
 
+  .preview-live-recall .workspace-panel {
+    height: auto;
+    min-height: 420px;
+  }
+
   .concept-preview-stage,
   .preview-composition {
     min-height: 0;
@@ -1812,6 +1821,11 @@ section {
 
   .workspace-panel {
     height: 380px;
+  }
+
+  .preview-live-recall .workspace-panel {
+    height: auto;
+    min-height: 360px;
   }
 
   .preview-composition {

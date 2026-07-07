@@ -104,6 +104,8 @@ I keep returning to the same idea, then pretending it does not matter.
 
 Good fit because it feels personal, specific, and strongly aligned with InnerScript's silent archive thesis.
 
+Expanded live preview direction: show the archive catching a recurring ambition across sketches, private notes, and older journal entries, without making the claim feel like a diagnosis.
+
 ### Remembered Scenario Preference Order
 
 1. Private ambition: "I keep returning to the same idea, then pretending it does not matter."
