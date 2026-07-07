@@ -8,9 +8,9 @@ Dear reader,
 
 Most modern software is built to exploit your attention. Apps flash notifications, gamify basic habits, and mine your deepest interests to sell ads or train corporate base models.
 
-We believe there is room for software that behaves like a quiet study. An archive that is local, completely owned by you, and designed to help you think rather than keep you scrolling.
+We believe there is room for software that behaves like a quiet study. An archive that is completely owned by you, and designed to help you think rather than keep you scrolling.
 
-InnerScript is our exploration of this idea. We are looking for collaborators who want to work on a local-first memory system.
+InnerScript is our exploration of this idea. We are looking for collaborators who want to work on a personal memory system.
 
 If this resonates with you, let's build this together.
 
