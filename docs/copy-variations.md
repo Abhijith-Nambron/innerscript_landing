@@ -68,9 +68,9 @@ Selected V3 direction: use Option A.
 
 ### Option A - Compact Archive Problem
 
-Your old writing already maps emotional curves, recurring fears, repeated habits, and relationship histories. It just has no way to answer back.
+Your old writing already contains emotional curves, recurring fears, repeated habits, and relationship histories. The tragedy is not that you failed to write. The tragedy is that the writing stopped speaking back.
 
-A journal should not become a drawer of dead pages. InnerScript is built to help old entries return as useful context when today's thought needs a longer memory.
+InnerScript brings old entries back as useful context when today's thought needs a longer memory.
 
 ### Option B - Stronger Psychology
 

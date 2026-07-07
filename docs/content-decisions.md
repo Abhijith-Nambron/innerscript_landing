@@ -34,7 +34,7 @@ The InnerScript team
 - The current `Product Principles` section feels excessive and is archived/commented out for the V3 pass.
 - The `Give old notes a usable second life` audience/archive section is archived/commented out for the V3 pass.
 - The `Two Loops of Self-Understanding` section is archived/commented out for the V3 pass.
-- Approved problem copy: "Your old writing already maps emotional curves, recurring fears, repeated habits, and relationship histories. It just has no way to answer back. A journal should not become a drawer of dead pages. InnerScript is built to help old entries return as useful context when today's thought needs a longer memory."
+- Approved problem copy: "Your old writing already contains emotional curves, recurring fears, repeated habits, and relationship histories. The tragedy is not that you failed to write. The tragedy is that the writing stopped speaking back. InnerScript brings old entries back as useful context when today's thought needs a longer memory."
 
 ## Signup And Sheet Decisions
 
