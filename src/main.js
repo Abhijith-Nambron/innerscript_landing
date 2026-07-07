@@ -518,6 +518,25 @@ function initScrollTopLinks() {
   });
 }
 
+function initHeaderSectionLinks() {
+  document.querySelectorAll('[data-highlight-target]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const target = document.querySelector(link.getAttribute('data-highlight-target'));
+      if (!target) return;
+
+      event.preventDefault();
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+
+      target.classList.remove('is-callout-highlight');
+      window.setTimeout(() => target.classList.add('is-callout-highlight'), 20);
+      window.setTimeout(() => target.classList.remove('is-callout-highlight'), 1700);
+    });
+  });
+}
+
 // 8. SANDBOX CONTROLLERS (PREVIEW CHOOSER)
 function initSandboxControls() {
   const previewButtons = Array.from(document.querySelectorAll('[data-preview-tab]'));
@@ -558,6 +577,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // Make footer top links work repeatedly even when the hash is already set.
   initScrollTopLinks();
+
+  // Clarify where header CTA actions land.
+  initHeaderSectionLinks();
   
   // Load Three.js and initialize the subtle hero background.
   loadThreeAndInit3D();

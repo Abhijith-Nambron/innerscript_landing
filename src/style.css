@@ -57,6 +57,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+section,
+.hero-access-form,
+.collab-form-box {
+  scroll-margin-top: 96px;
+}
+
 body {
   overflow-x: hidden;
   background-color: var(--color-bg);
@@ -337,6 +343,14 @@ em {
   border-radius: 6px;
   overflow: hidden;
   background-color: var(--color-surface-deep);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.hero-access-form.is-callout-highlight .hero-access-row {
+  border-color: rgba(245, 241, 232, 0.86);
+  background-color: rgba(245, 241, 232, 0.06);
+  box-shadow: 0 0 0 1px rgba(245, 241, 232, 0.18), 0 18px 44px rgba(0, 0, 0, 0.28);
+  animation: access-callout 1.65s ease;
 }
 
 .hero-access-row input {
@@ -357,6 +371,20 @@ em {
 
 .hero-access-row input:focus {
   background-color: rgba(177, 197, 255, 0.05);
+}
+
+@keyframes access-callout {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 241, 232, 0), 0 18px 44px rgba(0, 0, 0, 0.2);
+  }
+
+  22% {
+    box-shadow: 0 0 0 6px rgba(245, 241, 232, 0.14), 0 18px 44px rgba(0, 0, 0, 0.28);
+  }
+
+  100% {
+    box-shadow: 0 0 0 1px rgba(245, 241, 232, 0.18), 0 18px 44px rgba(0, 0, 0, 0.28);
+  }
 }
 
 .hero-access-button {
