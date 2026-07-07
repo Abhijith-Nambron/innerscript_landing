@@ -88,81 +88,26 @@
       </div>
     </section>
 
-    <!-- CONCEPT PREVIEW (Logseq & Search Simulator) -->
+    <!-- CONCEPT PREVIEW -->
     <section class="sandbox-section" id="workspace-sandbox">
       <div class="section-divider-line"></div>
       <div class="sandbox-header">
         <div class="sandbox-title-area">
           <p class="section-kicker">Concept Preview</p>
           <p class="section-subtitle">Write a thought. See what it connects to.</p>
+          <p class="preview-decision-note" id="preview-decision-note">Variation 1 of 5 / Live Recall</p>
         </div>
-        <div class="sandbox-controls">
-          <button class="btn btn-tab active" id="btn-demo-anxiety" data-demo="anxiety" aria-label="Run anxiety loop demo">Anxiety</button>
-          <button class="btn btn-tab" id="btn-demo-idea" data-demo="idea" aria-label="Run idea demo">Idea</button>
-          <button class="btn btn-tab" id="btn-demo-relationship" data-demo="relationship" aria-label="Run relationship demo">Relationship</button>
-          <button class="btn btn-tab" id="btn-demo-energy" data-demo="energy" aria-label="Run energy demo">Energy</button>
-          <button class="btn btn-tab" id="btn-demo-reset" aria-label="Reset workspace demo">Reset</button>
+        <div class="sandbox-controls" role="tablist" aria-label="Concept preview variations">
+          <button class="btn btn-tab active" id="tab-live-recall" data-preview-tab="live-recall" role="tab" aria-selected="true" aria-controls="concept-preview-stage">Live Recall</button>
+          <button class="btn btn-tab" id="tab-timeline-replay" data-preview-tab="timeline-replay" role="tab" aria-selected="false" aria-controls="concept-preview-stage">Timeline</button>
+          <button class="btn btn-tab" id="tab-source-stack" data-preview-tab="source-stack" role="tab" aria-selected="false" aria-controls="concept-preview-stage">Sources</button>
+          <button class="btn btn-tab" id="tab-pattern-map" data-preview-tab="pattern-map" role="tab" aria-selected="false" aria-controls="concept-preview-stage">Patterns</button>
+          <button class="btn btn-tab" id="tab-before-after" data-preview-tab="before-after" role="tab" aria-selected="false" aria-controls="concept-preview-stage">Before / After</button>
         </div>
       </div>
 
-      <div class="workspace-grid">
-        <!-- Left Panel: Logseq-style Outliner -->
-        <div class="workspace-panel outliner-panel" id="sandbox-outliner">
-          <div class="panel-header">
-            <div class="panel-title">
-              <span class="icon-outline"></span>
-              <span>journal / 2026-06-05.md</span>
-            </div>
-            <div class="panel-status">EDITING</div>
-          </div>
-
-          <div class="outliner-content" id="outliner-editor">
-            <div class="outliner-node depth-0 active-typing" id="node-parent">
-              <span class="bullet-point"></span>
-              <div class="node-text-wrapper">
-                <span class="node-text" id="typing-text-field"></span><span class="cursor-blink">|</span>
-              </div>
-            </div>
-
-            <div class="outliner-node depth-1 fade-in-delayed" id="node-child-1">
-              <span class="bullet-point"></span>
-              <div class="node-text-wrapper">
-                <span class="node-text text-muted">Is this related to team dynamics or product speed?</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Panel: Reflection and Sources (Semantic Mirror) -->
-        <div class="workspace-panel reflection-panel" id="sandbox-mirror">
-          <div class="panel-header">
-            <div class="panel-title">
-              <span class="icon-reflection"></span>
-              <span>Reflection</span>
-            </div>
-            <div class="panel-tag">SOURCES ACTIVE</div>
-          </div>
-
-          <div class="reflection-content">
-            <div class="reflection-card" id="active-reflection-card">
-              <div class="card-badge">REFLECTION QUESTION</div>
-              <h3 class="reflection-question" id="reflection-prompt">Waiting for thoughts to be recorded...</h3>
-              <p class="reflection-meta">InnerScript analyzes active entries in real-time without sending data to public
-                clouds.</p>
-            </div>
-
-            <div class="citations-container" id="active-citations-container">
-              <div class="citation-title">RELATED WRITING</div>
-
-              <div class="citation-list" id="citation-list-wrapper">
-                <!-- Dynamic citations will be injected here -->
-                <div class="citation-empty-state" id="citation-empty">
-                  Write in the journal to surface related memories.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="concept-preview-stage" id="concept-preview-stage" role="tabpanel" aria-live="polite" aria-labelledby="tab-live-recall">
+        <!-- Dynamic preview variations are injected here. -->
       </div>
     </section>
 

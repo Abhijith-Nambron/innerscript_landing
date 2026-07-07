@@ -1,85 +1,125 @@
 // InnerScript Landing Page Application Logic
 
-// 1. TYPING DEMO SIMULATOR CONTEXTS
-const DEMO_DATA = {
-  anxiety: {
-    text: "Feeling that persistent loop of anxiety about product alignment again...",
-    childText: "It feels exactly like that time when we were preparing to launch last October.",
-    triggerIndex: 45,
-    reflection: "You've written about team alignment anxiety across <em>three previous project launches</em>. Is this about the team's actual progress, or a fear of repeating past communication blockages?",
-    citations: [
+// 1. CONCEPT PREVIEW VARIATIONS
+const PREVIEW_VARIATIONS = [
+  {
+    id: 'live-recall',
+    label: 'Live Recall',
+    note: 'Best for showing the product loop as a workspace.',
+    eyebrow: 'CURRENT THOUGHT',
+    title: 'The thought enters. The archive answers.',
+    thought: 'My focus collapsed again after three packed meeting days, even though the work itself was going well.',
+    followup: 'This feels less like laziness and more like ignoring the recovery pattern I already know.',
+    reflection: 'This resembles earlier entries about meeting-heavy exhaustion. Is the problem motivation, or the recovery window you keep skipping?',
+    sources: [
       {
-        date: "OCTOBER 14, 2025",
-        score: "strong match",
-        text: "Tension during the beta release. Felt unheard by the team while discussing <mark>launch decisions</mark>. Need to write down guidelines early next time."
+        date: 'JAN 17, 2026',
+        tag: 'strong match',
+        text: 'Great progress early in the week, then no energy by Thursday after back-to-back calls. Need one quiet morning after meeting clusters.'
       },
       {
-        date: "AUGUST 02, 2025",
-        score: "related memory",
-        text: "Felt anxious before client sync. Retrospectively, the alignment was fine, I was just overthinking the timeline differences."
+        date: 'OCT 03, 2025',
+        tag: 'related memory',
+        text: 'Focus returned after canceling two optional syncs and spending the morning writing alone.'
       }
     ]
   },
-  idea: {
-    text: "I should design a better way to keep my notes connected across devices...",
-    childText: "The important part is that my writing remains easy to move, revisit, and trust.",
-    triggerIndex: 35,
-    reflection: "You proposed a similar <em>portable writing archive</em> 9 months ago. Should this build on that older idea, or start from the journaling flow you use today?",
-    citations: [
+  {
+    id: 'timeline-replay',
+    label: 'Timeline Replay',
+    note: 'Best for showing that old writing has a history, not just search results.',
+    title: 'See the pattern move through time.',
+    thought: 'The week went well, but my focus still crashed.',
+    reflection: 'The same recovery pattern appears in older entries, across different workloads and seasons.',
+    events: [
       {
-        date: "SEPTEMBER 02, 2025",
-        score: "strong match",
-        text: "Thinking about connected notes. The archive should stay <mark>portable and easy to export</mark> rather than being trapped in one app."
+        date: 'OCT 2025',
+        title: 'Quiet morning restored focus',
+        text: 'You noticed that fewer calls brought your writing energy back.'
       },
       {
-        date: "JUNE 18, 2025",
-        score: "related memory",
-        text: "Researching better outlines for long-term journaling. The structure should stay simple enough to understand years later."
+        date: 'JAN 2026',
+        title: 'Back-to-back calls drained the week',
+        text: 'The entry connects progress with a delayed energy crash.'
+      },
+      {
+        date: 'TODAY',
+        title: 'Current thought repeats it',
+        text: 'InnerScript connects the new entry to an older recovery pattern.'
       }
     ]
   },
-  relationship: {
-    text: "I keep replaying that conversation and wondering why a small comment felt so personal...",
-    childText: "Maybe it touched the old fear of being dismissed before I finish explaining myself.",
-    triggerIndex: 48,
-    reflection: "This resembles earlier entries about feeling <em>dismissed in close conversations</em>. Is the current hurt about this comment, or the older pattern it reminded you of?",
-    citations: [
+  {
+    id: 'source-stack',
+    label: 'Source Stack',
+    note: 'Best for making the source-backed promise obvious.',
+    title: 'Every reflection can point back to the line.',
+    thought: 'Why did my focus crash after a good work week?',
+    reflection: 'Possible pattern: the crash follows meeting density more than the difficulty of the work.',
+    sources: [
       {
-        date: "NOVEMBER 21, 2025",
-        score: "strong match",
-        text: "Argument after dinner. I reacted less to the words and more to the feeling that my <mark>point was being waved away</mark>."
+        date: 'JAN 17, 2026',
+        tag: 'line 14',
+        text: 'No energy by Thursday after back-to-back calls. Need one quiet morning after meeting clusters.'
       },
       {
-        date: "MAY 09, 2025",
-        score: "related memory",
-        text: "Noticed I get defensive when someone interrupts before I can finish. Need to separate interruption from rejection."
+        date: 'OCT 03, 2025',
+        tag: 'line 08',
+        text: 'Focus returned after canceling two optional syncs and spending the morning writing alone.'
+      },
+      {
+        date: 'FEB 12, 2026',
+        tag: 'line 22',
+        text: 'I keep scheduling recovery after the crash instead of before it.'
       }
     ]
   },
-  energy: {
-    text: "My focus collapsed again after three packed meeting days, even though the work itself was going well...",
-    childText: "This feels less like laziness and more like ignoring the recovery pattern I already know.",
-    triggerIndex: 54,
-    reflection: "You've logged this <em>meeting-heavy exhaustion pattern</em> several times. Would a protected recovery block prevent the next crash?",
-    citations: [
+  {
+    id: 'pattern-map',
+    label: 'Pattern Map',
+    note: 'Best for showing compact self-understanding without long lists.',
+    title: 'A private entry becomes a pattern map.',
+    thought: 'The calendar looked productive, but my body treated it like overload.',
+    reflection: 'InnerScript groups the entry into a few grounded patterns you can inspect.',
+    patterns: [
       {
-        date: "JANUARY 17, 2026",
-        score: "strong match",
-        text: "Great progress early in the week, then no energy by Thursday after back-to-back calls. Need <mark>one quiet morning after meeting clusters</mark>."
+        label: 'Energy curve',
+        score: '7 matches',
+        text: 'Focus falls after dense meeting clusters.'
       },
       {
-        date: "OCTOBER 03, 2025",
-        score: "related memory",
-        text: "Focus returned after canceling two optional syncs and spending the morning writing alone."
+        label: 'Repeated habit',
+        score: '5 matches',
+        text: 'Recovery is scheduled only after the crash.'
+      },
+      {
+        label: 'Work rhythm',
+        score: '4 matches',
+        text: 'Writing returns after one quiet morning.'
       }
+    ]
+  },
+  {
+    id: 'before-after',
+    label: 'Before / After',
+    note: 'Best for explaining the silent archive problem quickly.',
+    title: 'From stored writing to speaking context.',
+    thought: 'My focus crashed after another packed week.',
+    before: [
+      'journal-2025-05.md',
+      'dinner-notes.md',
+      'voice-memos.txt'
+    ],
+    after: [
+      'This looks like an older recovery pattern.',
+      'Two entries mention meeting density as the trigger.',
+      'The exact supporting lines are ready to inspect.'
     ]
   }
-};
+];
 
 // 2. STATE MANAGER
-let typingInterval = null;
-let currentDemo = 'anxiety';
-let isTyping = false;
+let currentPreviewId = 'live-recall';
 
 const interestCaptureConfig = {
   endpoint: 'https://script.google.com/macros/s/AKfycbycgtEG_SUmpuaCArSQgJXU3AHGbeQqQHEFbt3QsXwtnedqnSePYPSPrqkmw2qvZuZgvg/exec',
@@ -89,154 +129,209 @@ const interestCaptureConfig = {
   userAgentFieldName: 'userAgent'
 };
 
-// DOM Elements
-const textField = document.getElementById('typing-text-field');
-const childNode = document.getElementById('node-child-1');
-const childNodeText = childNode ? childNode.querySelector('.node-text') : null;
-const reflectionPrompt = document.getElementById('reflection-prompt');
-const citationListWrapper = document.getElementById('citation-list-wrapper');
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (char) => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  })[char]);
+}
 
-// 3. TYPING EFFECT SIMULATOR
-function startTypingDemo(demoKey) {
-  // Clear any active interval
-  if (typingInterval) {
-    clearInterval(typingInterval);
+function renderPreviewVariation(previewId) {
+  const preview = PREVIEW_VARIATIONS.find((item) => item.id === previewId) || PREVIEW_VARIATIONS[0];
+  const stage = document.getElementById('concept-preview-stage');
+  const note = document.getElementById('preview-decision-note');
+  const selectedIndex = PREVIEW_VARIATIONS.findIndex((item) => item.id === preview.id);
+
+  if (!stage) return;
+
+  currentPreviewId = preview.id;
+  stage.className = `concept-preview-stage preview-${preview.id}`;
+  stage.setAttribute('aria-labelledby', `tab-${preview.id}`);
+  stage.innerHTML = getPreviewMarkup(preview);
+
+  if (note) {
+    note.textContent = `Variation ${selectedIndex + 1} of ${PREVIEW_VARIATIONS.length} / ${preview.label}`;
   }
-  isTyping = true;
-  currentDemo = demoKey;
-  
-  const data = DEMO_DATA[demoKey];
-  let charIndex = 0;
-  
-  // Reset DOM Elements
-  textField.innerHTML = '';
-  textField.classList.remove('highlighted');
-  
-  childNode.classList.remove('visible');
-  childNodeText.textContent = '';
-  
-  reflectionPrompt.style.opacity = '0.3';
-  reflectionPrompt.innerHTML = 'Waiting for thoughts to be recorded...';
-  
-  citationListWrapper.innerHTML = `
-    <div class="citation-empty-state" id="citation-empty">
-      Write in the journal to surface related memories.
-    </div>
-  `;
-  
-  // Animate active typing node glow
-  const parentNode = document.getElementById('node-parent');
-  parentNode.classList.add('active-typing');
 
-  // Start character timer
-  typingInterval = setInterval(() => {
-    if (charIndex < data.text.length) {
-      textField.textContent += data.text.charAt(charIndex);
-      charIndex++;
-      
-      // Trigger recall once enough writing context is established.
-      if (charIndex === data.triggerIndex) {
-        triggerSemanticRetrieval(data);
-      }
-    } else {
-      // Done typing main node
-      clearInterval(typingInterval);
-      parentNode.classList.remove('active-typing');
-      
-      // Start typing child outliner node after a short pause
-      setTimeout(() => {
-        typeChildNode(data);
-      }, 800);
-    }
-  }, 40);
-}
-
-function typeChildNode(data) {
-  childNode.classList.add('visible');
-  let childIndex = 0;
-  
-  typingInterval = setInterval(() => {
-    if (childIndex < data.childText.length) {
-      childNodeText.textContent += data.childText.charAt(childIndex);
-      childIndex++;
-    } else {
-      clearInterval(typingInterval);
-      isTyping = false;
-      
-      // Highlight the key triggered text in the main node for emphasis
-      highlightTriggeredPhrases(data);
-    }
-  }, 30);
-}
-
-function highlightTriggeredPhrases(data) {
-  const text = data.text;
-  if (currentDemo === 'anxiety') {
-    const start = text.indexOf('anxiety about product alignment');
-    if (start !== -1) {
-      const len = 'anxiety about product alignment'.length;
-      textField.innerHTML = 
-        text.substring(0, start) + 
-        `<span style="color: var(--color-blue); background-color: rgba(177, 197, 255, 0.08); border-bottom: 1px dashed var(--color-blue); padding: 0 2px; border-radius: 2px;">` + 
-        text.substring(start, start + len) + 
-        `</span>` + 
-        text.substring(start + len);
-    }
-  } else if (currentDemo === 'idea') {
-    const start = text.indexOf('notes connected across devices');
-    if (start !== -1) {
-      const len = 'notes connected across devices'.length;
-      textField.innerHTML = 
-        text.substring(0, start) + 
-        `<span style="color: var(--color-blue); background-color: rgba(177, 197, 255, 0.05); border-bottom: 1px dashed var(--color-blue); padding: 0 2px; border-radius: 2px;">` + 
-        text.substring(start, start + len) + 
-        `</span>` + 
-        text.substring(start + len);
-    }
-  } else if (currentDemo === 'relationship') {
-    highlightPhrase(text, 'small comment felt so personal', 'var(--color-blue)', 'rgba(177, 197, 255, 0.08)');
-  } else if (currentDemo === 'energy') {
-    highlightPhrase(text, 'focus collapsed again', 'var(--color-gold)', 'rgba(220, 198, 97, 0.08)');
-  }
-}
-
-function highlightPhrase(text, phrase, color, backgroundColor) {
-  const start = text.indexOf(phrase);
-  if (start === -1) return;
-
-  textField.innerHTML =
-    text.substring(0, start) +
-    `<span style="color: ${color}; background-color: ${backgroundColor}; border-bottom: 1px dashed ${color}; padding: 0 2px; border-radius: 2px;">` +
-    text.substring(start, start + phrase.length) +
-    `</span>` +
-    text.substring(start + phrase.length);
-}
-
-// 4. RETRIEVAL AND INTERACTIVE UI UPDATES
-function triggerSemanticRetrieval(data) {
-  // 1. Update reflection question
-  reflectionPrompt.style.opacity = '1';
-  reflectionPrompt.innerHTML = data.reflection;
-  
-  // 2. Render citations
-  citationListWrapper.innerHTML = '';
-  data.citations.forEach(cit => {
-    const card = document.createElement('div');
-    card.className = 'citation-card';
-    card.style.borderLeftColor = currentDemo === 'energy' ? 'var(--color-gold)' : 'var(--color-blue)';
-    card.innerHTML = `
-      <div class="citation-header">
-        <span class="citation-date" style="color: ${currentDemo === 'energy' ? 'var(--color-gold)' : 'var(--color-blue)'}">${cit.date}</span>
-        <span class="citation-score">${cit.score}</span>
-      </div>
-      <p class="citation-text">${cit.text}</p>
-    `;
-    citationListWrapper.appendChild(card);
+  document.querySelectorAll('[data-preview-tab]').forEach((button) => {
+    const isActive = button.dataset.previewTab === preview.id;
+    button.classList.toggle('active', isActive);
+    button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    button.tabIndex = isActive ? 0 : -1;
   });
-  
 }
 
-// 5. EMAIL INTEREST CAPTURE
+function getPreviewMarkup(preview) {
+  if (preview.id === 'timeline-replay') return renderTimelinePreview(preview);
+  if (preview.id === 'source-stack') return renderSourceStackPreview(preview);
+  if (preview.id === 'pattern-map') return renderPatternMapPreview(preview);
+  if (preview.id === 'before-after') return renderBeforeAfterPreview(preview);
+  return renderLiveRecallPreview(preview);
+}
+
+function renderLiveRecallPreview(preview) {
+  return `
+    <div class="workspace-grid" data-preview-panel="${preview.id}">
+      <article class="workspace-panel outliner-panel">
+        <div class="panel-header">
+          <div class="panel-title"><span class="icon-outline"></span><span>journal / today.md</span></div>
+          <div class="panel-status">WRITING</div>
+        </div>
+        <div class="outliner-content">
+          <div class="outliner-node depth-0 active-typing">
+            <span class="bullet-point"></span>
+            <div class="node-text-wrapper">
+              <span class="node-text">${escapeHtml(preview.thought)}</span>
+            </div>
+          </div>
+          <div class="outliner-node depth-1 visible">
+            <span class="bullet-point"></span>
+            <div class="node-text-wrapper">
+              <span class="node-text text-muted">${escapeHtml(preview.followup)}</span>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="workspace-panel reflection-panel">
+        <div class="panel-header">
+          <div class="panel-title"><span class="icon-reflection"></span><span>Reflection</span></div>
+          <div class="panel-tag">SOURCES ACTIVE</div>
+        </div>
+        <div class="reflection-content">
+          <div class="reflection-card">
+            <div class="card-badge">REFLECTION QUESTION</div>
+            <h3 class="reflection-question">${escapeHtml(preview.reflection)}</h3>
+            <p class="reflection-meta">A concept preview for source-backed reflection from personal writing.</p>
+          </div>
+          <div class="citations-container">
+            <div class="citation-title">RELATED WRITING</div>
+            <div class="citation-list">
+              ${preview.sources.map(renderCitationCard).join('')}
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <p class="preview-usage-note">${escapeHtml(preview.note)}</p>
+  `;
+}
+
+function renderTimelinePreview(preview) {
+  return `
+    <div class="preview-composition preview-timeline-layout" data-preview-panel="${preview.id}">
+      <article class="preview-summary-panel">
+        <div class="card-badge">TIMELINE REPLAY</div>
+        <h3>${escapeHtml(preview.title)}</h3>
+        <p>${escapeHtml(preview.reflection)}</p>
+        <div class="current-thought-pill">${escapeHtml(preview.thought)}</div>
+      </article>
+      <ol class="memory-timeline" aria-label="Related journal history">
+        ${preview.events.map((event) => `
+          <li class="timeline-event">
+            <span class="timeline-date">${escapeHtml(event.date)}</span>
+            <div>
+              <strong>${escapeHtml(event.title)}</strong>
+              <p>${escapeHtml(event.text)}</p>
+            </div>
+          </li>
+        `).join('')}
+      </ol>
+    </div>
+    <p class="preview-usage-note">${escapeHtml(preview.note)}</p>
+  `;
+}
+
+function renderSourceStackPreview(preview) {
+  return `
+    <div class="preview-composition preview-source-layout" data-preview-panel="${preview.id}">
+      <article class="source-query-panel">
+        <div class="card-badge">SOURCE-BACKED ANSWER</div>
+        <h3>${escapeHtml(preview.title)}</h3>
+        <p class="source-query">${escapeHtml(preview.thought)}</p>
+        <p>${escapeHtml(preview.reflection)}</p>
+      </article>
+      <div class="source-stack-list">
+        ${preview.sources.map(renderSourceCard).join('')}
+      </div>
+    </div>
+    <p class="preview-usage-note">${escapeHtml(preview.note)}</p>
+  `;
+}
+
+function renderPatternMapPreview(preview) {
+  return `
+    <div class="preview-composition preview-pattern-layout" data-preview-panel="${preview.id}">
+      <article class="pattern-current-card">
+        <div class="card-badge">PATTERN MAP</div>
+        <h3>${escapeHtml(preview.title)}</h3>
+        <p>${escapeHtml(preview.thought)}</p>
+        <span>${escapeHtml(preview.reflection)}</span>
+      </article>
+      <div class="pattern-grid" aria-label="Detected pattern groups">
+        ${preview.patterns.map((pattern) => `
+          <article class="pattern-card">
+            <div class="pattern-score">${escapeHtml(pattern.score)}</div>
+            <h4>${escapeHtml(pattern.label)}</h4>
+            <p>${escapeHtml(pattern.text)}</p>
+          </article>
+        `).join('')}
+      </div>
+    </div>
+    <p class="preview-usage-note">${escapeHtml(preview.note)}</p>
+  `;
+}
+
+function renderBeforeAfterPreview(preview) {
+  return `
+    <div class="preview-composition preview-before-after-layout" data-preview-panel="${preview.id}">
+      <article class="archive-column archive-before">
+        <div class="card-badge">BEFORE</div>
+        <h3>Stored, but silent.</h3>
+        <p>${escapeHtml(preview.thought)}</p>
+        <ul>
+          ${preview.before.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+        </ul>
+      </article>
+      <article class="archive-column archive-after">
+        <div class="card-badge">AFTER</div>
+        <h3>${escapeHtml(preview.title)}</h3>
+        <ul>
+          ${preview.after.map((item) => `<li>${escapeHtml(item)}</li>`).join('')}
+        </ul>
+      </article>
+    </div>
+    <p class="preview-usage-note">${escapeHtml(preview.note)}</p>
+  `;
+}
+
+function renderCitationCard(citation) {
+  return `
+    <article class="citation-card">
+      <div class="citation-header">
+        <span class="citation-date">${escapeHtml(citation.date)}</span>
+        <span class="citation-score">${escapeHtml(citation.tag)}</span>
+      </div>
+      <p class="citation-text">${escapeHtml(citation.text)}</p>
+    </article>
+  `;
+}
+
+function renderSourceCard(source) {
+  return `
+    <article class="source-card">
+      <div class="citation-header">
+        <span class="citation-date">${escapeHtml(source.date)}</span>
+        <span class="citation-score">${escapeHtml(source.tag)}</span>
+      </div>
+      <p>${escapeHtml(source.text)}</p>
+    </article>
+  `;
+}
+
+// 3. EMAIL INTEREST CAPTURE
 function initInterestCaptureForms() {
   document.querySelectorAll('[data-interest-form]').forEach((form) => {
     form.addEventListener('submit', (event) => {
@@ -353,36 +448,31 @@ function initScrollObserver() {
   });
 }
 
-// 8. SANDBOX CONTROLLERS (DEMO CHOOSER)
+// 8. SANDBOX CONTROLLERS (PREVIEW CHOOSER)
 function initSandboxControls() {
-  const demoButtons = document.querySelectorAll('[data-demo]');
-  const btnReset = document.getElementById('btn-demo-reset');
+  const previewButtons = Array.from(document.querySelectorAll('[data-preview-tab]'));
 
-  demoButtons.forEach((button) => {
+  previewButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
-      if (isTyping) return;
-      demoButtons.forEach((btn) => btn.classList.remove('active'));
-      button.classList.add('active');
-      startTypingDemo(button.dataset.demo);
+      renderPreviewVariation(button.dataset.previewTab);
+    });
+
+    button.addEventListener('keydown', (event) => {
+      if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+
+      event.preventDefault();
+      let nextIndex = index;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % previewButtons.length;
+      if (event.key === 'ArrowLeft') nextIndex = (index - 1 + previewButtons.length) % previewButtons.length;
+      if (event.key === 'Home') nextIndex = 0;
+      if (event.key === 'End') nextIndex = previewButtons.length - 1;
+
+      previewButtons[nextIndex].focus();
+      renderPreviewVariation(previewButtons[nextIndex].dataset.previewTab);
     });
   });
-  
-  if (btnReset) {
-    btnReset.addEventListener('click', () => {
-      if (typingInterval) clearInterval(typingInterval);
-      isTyping = false;
-      textField.textContent = '';
-      childNode.classList.remove('visible');
-      childNodeText.textContent = '';
-      reflectionPrompt.innerHTML = 'Waiting for thoughts to be recorded...';
-      demoButtons.forEach((btn) => btn.classList.remove('active'));
-      citationListWrapper.innerHTML = `
-        <div class="citation-empty-state" id="citation-empty">
-          Write in the journal to surface related memories.
-        </div>
-      `;
-    });
-  }
+
+  renderPreviewVariation(currentPreviewId);
 }
 
 // 8. APP INITIALIZATION
@@ -396,11 +486,6 @@ window.addEventListener('DOMContentLoaded', () => {
   // Initialize Scroll animations
   initScrollObserver();
   
-  // Start the default demo (anxiety) after a slight loading timeout
-  setTimeout(() => {
-    startTypingDemo('anxiety');
-  }, 1200);
-
   // Load Three.js and initialize the subtle hero background.
   loadThreeAndInit3D();
 });

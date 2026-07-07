@@ -64,6 +64,54 @@ Watch how InnerScript could turn a private entry into a grounded reflection ques
 
 Selected V3 direction: use Option A.
 
+## Concept Preview Display Variations
+
+### Variation 1 - Live Recall
+
+Two-panel writing and reflection view.
+
+Best for showing the product loop as a workspace.
+
+### Variation 2 - Timeline Replay
+
+A current thought connects to older entries across time.
+
+Best for showing that old writing has a history, not just search results.
+
+### Variation 3 - Source Stack
+
+An answer appears beside compact source cards.
+
+Best for making the source-backed promise obvious.
+
+### Variation 4 - Pattern Map
+
+The current entry becomes a few inspectable pattern groups.
+
+Best for compact self-understanding without long examples.
+
+### Variation 5 - Before / After
+
+Split silent archive against speaking context.
+
+Best for explaining the archive problem quickly.
+
+## Concept Preview Scenario Examples
+
+### Selected - Energy Crash After Productive Weeks
+
+The calendar looked productive, but my body treated it like overload.
+
+Good fit because it shows recurring habits and emotional curves without making the page relationship-led.
+
+### Other Scenario Candidates
+
+- Avoiding a recurring ambition: "I keep circling the same product idea, then convincing myself it is not the right time."
+- Money anxiety loop: "Every time income rises, I start acting like I am one mistake away from losing everything."
+- Creative avoidance: "I keep reorganizing the notes instead of finishing the essay."
+- Decision fatigue: "I keep asking for more information when the decision is already clear."
+- Restlessness after stability: "Whenever life gets calm, I start looking for a new problem to solve."
+
 ## Problem Section
 
 ### Option A - Compact Archive Problem
