@@ -6,7 +6,7 @@ Purpose: preserve approved landing-page copy decisions before changing the live 
 
 Dear reader,
 
-Most modern software is built to exploit your attention. Apps flash notifications, gamify basic habits, and mine your deepest interests to sell ads or train corporate base models.
+Most modern software is built to exploit your attention. Apps flash notifications, gamify basic habits, and mine your deepest interests.
 
 We believe there is room for software that behaves like a quiet study. An archive that is completely owned by you, and designed to help you think rather than keep you scrolling.
 
@@ -37,7 +37,8 @@ The InnerScript team
 
 ## Signup And Sheet Decisions
 
-- The visible CTA should say `Claim early access` with a footnote: `Only 100 spots available.`
+- The header CTA should say `Early access`.
+- The hero form CTA should say `Claim early access` with a footnote: `Only 100 spots available.`
 - Current form wiring posts these fields to Google Apps Script: `email`, `source`, `timestamp`, `userAgent`.
 - Use source-based tracking for now: `hero_early_bird` and `collaboration_early_bird`.
 - The first-100 cutoff should happen in the Sheet or Apps Script because the static page cannot reliably know how many signups already exist.
