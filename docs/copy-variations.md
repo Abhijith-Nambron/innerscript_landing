@@ -136,7 +136,9 @@ Archive/comment out the Product Principles section for now.
 
 ### Option A - Hero Button
 
-Claim early access - first 100 spots
+Claim early access
+
+Only 100 spots available.
 
 Selected for V3 hero CTA.
 

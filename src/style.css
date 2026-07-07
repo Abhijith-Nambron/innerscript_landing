@@ -382,6 +382,13 @@ em {
   box-shadow: 0 0 16px rgba(51, 102, 204, 0.35);
 }
 
+.hero-access-note {
+  margin-top: 0.75rem;
+  color: var(--color-text-dim);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
 .hero-access-icon {
   position: relative;
   width: 18px;

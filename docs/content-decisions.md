@@ -37,7 +37,7 @@ The InnerScript team
 
 ## Signup And Sheet Decisions
 
-- The visible CTA should include an early-bird offer for the first 100 signups.
+- The visible CTA should say `Claim early access` with a footnote: `Only 100 spots available.`
 - Current form wiring posts these fields to Google Apps Script: `email`, `source`, `timestamp`, `userAgent`.
 - Use source-based tracking for now: `hero_early_bird` and `collaboration_early_bird`.
 - The first-100 cutoff should happen in the Sheet or Apps Script because the static page cannot reliably know how many signups already exist.
