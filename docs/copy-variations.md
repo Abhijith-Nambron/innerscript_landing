@@ -98,19 +98,19 @@ Best for explaining the archive problem quickly.
 
 ## Concept Preview Scenario Examples
 
-### Selected - Energy Crash After Productive Weeks
+### Selected - Private Ambition
 
-The calendar looked productive, but my body treated it like overload.
+I keep returning to the same idea, then pretending it does not matter.
 
-Good fit because it shows recurring habits and emotional curves without making the page relationship-led.
+Good fit because it feels personal, specific, and strongly aligned with InnerScript's silent archive thesis.
 
-### Other Scenario Candidates
+### Remembered Scenario Preference Order
 
-- Avoiding a recurring ambition: "I keep circling the same product idea, then convincing myself it is not the right time."
-- Money anxiety loop: "Every time income rises, I start acting like I am one mistake away from losing everything."
-- Creative avoidance: "I keep reorganizing the notes instead of finishing the essay."
-- Decision fatigue: "I keep asking for more information when the decision is already clear."
-- Restlessness after stability: "Whenever life gets calm, I start looking for a new problem to solve."
+1. Private ambition: "I keep returning to the same idea, then pretending it does not matter."
+2. Emotional overreaction: "My reaction felt bigger than the moment deserved."
+3. Avoiding a feeling: "I keep saying I am fine, but I have been unusually tired after every family call."
+4. Old friendship drift: "I miss them, but I also keep postponing the reply."
+5. Restlessness after stability: "Things are finally stable, but I already feel the urge to change everything."
 
 ## Problem Section
 

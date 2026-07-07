@@ -8,19 +8,19 @@ const PREVIEW_VARIATIONS = [
     note: 'Best for showing the product loop as a workspace.',
     eyebrow: 'CURRENT THOUGHT',
     title: 'The thought enters. The archive answers.',
-    thought: 'My focus collapsed again after three packed meeting days, even though the work itself was going well.',
-    followup: 'This feels less like laziness and more like ignoring the recovery pattern I already know.',
-    reflection: 'This resembles earlier entries about meeting-heavy exhaustion. Is the problem motivation, or the recovery window you keep skipping?',
+    thought: 'I keep returning to the same idea, then pretending it does not matter.',
+    followup: 'Every few months I write around it instead of admitting I still want it.',
+    reflection: 'This resembles older entries where the ambition appears right before you dismiss it as unrealistic. Is the doubt about timing, or about admitting you still want the thing?',
     sources: [
       {
-        date: 'JAN 17, 2026',
+        date: 'MAR 12, 2026',
         tag: 'strong match',
-        text: 'Great progress early in the week, then no energy by Thursday after back-to-back calls. Need one quiet morning after meeting clusters.'
+        text: 'Woke up thinking about the same product again. I called it a distraction, but it felt more like something I was afraid to commit to.'
       },
       {
-        date: 'OCT 03, 2025',
+        date: 'NOV 05, 2025',
         tag: 'related memory',
-        text: 'Focus returned after canceling two optional syncs and spending the morning writing alone.'
+        text: 'Listed three reasons the idea would not work, then spent the evening sketching it anyway.'
       }
     ]
   },
@@ -29,23 +29,23 @@ const PREVIEW_VARIATIONS = [
     label: 'Timeline Replay',
     note: 'Best for showing that old writing has a history, not just search results.',
     title: 'See the pattern move through time.',
-    thought: 'The week went well, but my focus still crashed.',
-    reflection: 'The same recovery pattern appears in older entries, across different workloads and seasons.',
+    thought: 'The same ambition returned again.',
+    reflection: 'The archive shows a cycle: excitement, dismissal, then a quiet return.',
     events: [
       {
-        date: 'OCT 2025',
-        title: 'Quiet morning restored focus',
-        text: 'You noticed that fewer calls brought your writing energy back.'
+        date: 'JUN 2025',
+        title: 'The first serious note',
+        text: 'You described the idea as impractical, then wrote three pages about why it mattered.'
       },
       {
-        date: 'JAN 2026',
-        title: 'Back-to-back calls drained the week',
-        text: 'The entry connects progress with a delayed energy crash.'
+        date: 'NOV 2025',
+        title: 'Dismissed, then sketched',
+        text: 'The entry argues against the idea while quietly designing the first version.'
       },
       {
         date: 'TODAY',
-        title: 'Current thought repeats it',
-        text: 'InnerScript connects the new entry to an older recovery pattern.'
+        title: 'The idea returns',
+        text: 'InnerScript connects the new entry to an older buried ambition.'
       }
     ]
   },
@@ -54,23 +54,23 @@ const PREVIEW_VARIATIONS = [
     label: 'Source Stack',
     note: 'Best for making the source-backed promise obvious.',
     title: 'Every reflection can point back to the line.',
-    thought: 'Why did my focus crash after a good work week?',
-    reflection: 'Possible pattern: the crash follows meeting density more than the difficulty of the work.',
+    thought: 'Why do I keep coming back to this idea?',
+    reflection: 'Possible pattern: the idea is not random. You repeatedly file it away right after it starts feeling personally important.',
     sources: [
       {
-        date: 'JAN 17, 2026',
+        date: 'MAR 12, 2026',
         tag: 'line 14',
-        text: 'No energy by Thursday after back-to-back calls. Need one quiet morning after meeting clusters.'
+        text: 'I called it a distraction, but it felt more like something I was afraid to commit to.'
       },
       {
-        date: 'OCT 03, 2025',
+        date: 'NOV 05, 2025',
         tag: 'line 08',
-        text: 'Focus returned after canceling two optional syncs and spending the morning writing alone.'
+        text: 'Listed three reasons the idea would not work, then spent the evening sketching it anyway.'
       },
       {
-        date: 'FEB 12, 2026',
+        date: 'JUN 18, 2025',
         tag: 'line 22',
-        text: 'I keep scheduling recovery after the crash instead of before it.'
+        text: 'If I still care about this next month, I should stop calling it a side thought.'
       }
     ]
   },
@@ -79,23 +79,23 @@ const PREVIEW_VARIATIONS = [
     label: 'Pattern Map',
     note: 'Best for showing compact self-understanding without long lists.',
     title: 'A private entry becomes a pattern map.',
-    thought: 'The calendar looked productive, but my body treated it like overload.',
+    thought: 'I keep pretending this ambition is optional, but it keeps coming back.',
     reflection: 'InnerScript groups the entry into a few grounded patterns you can inspect.',
     patterns: [
       {
-        label: 'Energy curve',
-        score: '7 matches',
-        text: 'Focus falls after dense meeting clusters.'
+        label: 'Buried ambition',
+        score: '8 matches',
+        text: 'The same idea returns after quiet periods.'
       },
       {
         label: 'Repeated habit',
-        score: '5 matches',
-        text: 'Recovery is scheduled only after the crash.'
+        score: '6 matches',
+        text: 'You label it impractical before testing it.'
       },
       {
-        label: 'Work rhythm',
+        label: 'Contradiction',
         score: '4 matches',
-        text: 'Writing returns after one quiet morning.'
+        text: 'You dismiss it, then keep designing around it.'
       }
     ]
   },
@@ -104,15 +104,15 @@ const PREVIEW_VARIATIONS = [
     label: 'Before / After',
     note: 'Best for explaining the silent archive problem quickly.',
     title: 'From stored writing to speaking context.',
-    thought: 'My focus crashed after another packed week.',
+    thought: 'I keep returning to the same idea.',
     before: [
       'journal-2025-05.md',
       'dinner-notes.md',
       'voice-memos.txt'
     ],
     after: [
-      'This looks like an older recovery pattern.',
-      'Two entries mention meeting density as the trigger.',
+      'This looks like a recurring ambition.',
+      'Older entries show excitement followed by self-dismissal.',
       'The exact supporting lines are ready to inspect.'
     ]
   }
