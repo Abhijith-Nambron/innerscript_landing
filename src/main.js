@@ -13,20 +13,20 @@ const PREVIEW_VARIATIONS = [
     reflection: 'This resembles older entries where the ambition appears right before you dismiss it as unrealistic. Is the doubt about timing, or about admitting you still want the thing enough to start?',
     journalNotes: [
       {
-        label: 'What I call it',
-        text: 'A side thought, a someday idea, a distraction.'
+        label: 'Later that night',
+        text: 'I keep calling it a side thought, a someday idea, a distraction. That is easier than admitting I still want it.'
       },
       {
-        label: 'What keeps happening',
-        text: 'I dismiss it in the morning, then sketch it again at night.'
+        label: 'Morning / night',
+        text: 'By morning I dismiss it. By night I am sketching the first version again.'
       },
       {
-        label: 'What feels true',
+        label: 'The uncomfortable part',
         text: 'The want is older than the excuse.'
       },
       {
-        label: 'Question to hold',
-        text: 'What would the smallest honest version look like?'
+        label: 'For tomorrow',
+        text: 'What would the smallest honest version look like if I stopped trying to make it impressive?'
       }
     ],
     sources: [
