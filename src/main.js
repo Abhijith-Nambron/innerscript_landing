@@ -253,7 +253,7 @@ function initInterestCaptureForms() {
       postInterestCapture(interestCaptureConfig, email, source);
       form.reset();
 
-      showInterestToast(source === 'collaboration'
+      showInterestToast(source.startsWith('collaboration')
         ? 'Thanks. We will reach out about collaborating.'
         : 'You are on the early access list.');
     });
@@ -441,22 +441,7 @@ function initBackgroundSphere3D() {
   // Create large wireframe sphere
   const sphereRadius = 7.2;
   const geometry = new THREE.IcosahedronGeometry(sphereRadius, 4);
-  const pointsGeometry = new THREE.IcosahedronGeometry(sphereRadius, 6);
-  const nodeCount = pointsGeometry.attributes.position.count * 3;
-  const nodePositions = new Float32Array(nodeCount * 3);
-
-  for (let i = 0; i < nodeCount; i++) {
-    const theta = Math.random() * Math.PI * 2;
-    const phi = Math.acos((Math.random() * 2) - 1);
-    const offset = i * 3;
-
-    nodePositions[offset] = sphereRadius * Math.sin(phi) * Math.cos(theta);
-    nodePositions[offset + 1] = sphereRadius * Math.sin(phi) * Math.sin(theta);
-    nodePositions[offset + 2] = sphereRadius * Math.cos(phi);
-  }
-
-  const densePointsGeometry = new THREE.BufferGeometry();
-  densePointsGeometry.setAttribute('position', new THREE.BufferAttribute(nodePositions, 3));
+  const densePointsGeometry = geometry.clone();
   
   // Wireframe material (Periwinkle Blue)
   const lineMat = new THREE.MeshBasicMaterial({

@@ -9,23 +9,23 @@
   <!-- SEO Meta Tags -->
   <title>InnerScript | Source-Backed AI Memory Companion & Private Diary</title>
   <meta name="description"
-    content="InnerScript is a private diary and AI memory companion that turns years of journals, notes, and personal writing into source-backed self-understanding. Local-first, thoughtful, and distraction-free." />
+    content="InnerScript is an AI journal companion that helps make unconscious patterns visible through journals, ideas, and private writing." />
   <meta name="keywords"
-    content="private diary, AI memory companion, personal writing, self-reflection, journal, thoughtful notes, Marcus Aurelius" />
+    content="AI journal companion, private diary, unconscious patterns, personal writing, self-reflection, Carl Jung" />
   <meta name="author" content="InnerScript" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="InnerScript | Source-Backed AI Memory Companion" />
   <meta property="og:description"
-    content="Turn years of journals, notes, and personal writing into source-backed self-understanding. Local-first and distraction-free." />
+    content="An AI journal companion for making unconscious patterns visible through your own writing." />
   <meta property="og:image" content="/statue.png" />
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:title" content="InnerScript | Source-Backed AI Memory Companion" />
   <meta property="twitter:description"
-    content="Turn years of journals, notes, and personal writing into source-backed self-understanding. Local-first and distraction-free." />
+    content="An AI journal companion for making unconscious patterns visible through your own writing." />
   <meta property="twitter:image" content="/statue.png" />
 
   <!-- Google Fonts: Inter & Fira Code (monospaced) -->
@@ -48,12 +48,12 @@
       </a>
       <nav class="nav-links" id="main-nav">
         <a href="#problem" id="nav-problem" class="nav-link">The Problem</a>
+        <a href="#workspace-sandbox" id="nav-preview" class="nav-link">Concept Preview</a>
         <a href="#how-it-works" id="nav-how-it-works" class="nav-link">First Loop</a>
-        <a href="#audiences" id="nav-audiences" class="nav-link">Target Personas</a>
         <a href="#manifesto" id="nav-manifesto" class="nav-link">Manifesto</a>
       </nav>
       <div class="nav-actions">
-        <a href="#hero" class="btn btn-primary btn-glow" id="nav-btn-launch">Get Early Access</a>
+        <a href="#hero" class="btn btn-primary btn-glow" id="nav-btn-launch">First 100 spots</a>
       </div>
     </div>
   </header>
@@ -70,16 +70,22 @@
             Your writing remembers <br><em>more than you do.</em>
           </h1>
           <p class="hero-subtitle" id="hero-subtext">
-            InnerScript is a private diary and AI memory companion that turns years of journals, notes, relationships,
-            ideas, and personal writing into source-backed self-understanding.
+            InnerScript is an AI journal companion that helps make unconscious patterns visible through journals, ideas,
+            and private writing.
           </p>
-          <form class="hero-access-form" id="hero-access-form" data-interest-form data-source="hero">
+          <figure class="hero-quote" aria-label="Quote often attributed to Carl Jung">
+            <blockquote>
+              "Until you make the unconscious conscious..."
+            </blockquote>
+            <figcaption>Often attributed to Carl Jung</figcaption>
+          </figure>
+          <form class="hero-access-form" id="hero-access-form" data-interest-form data-source="hero_early_bird">
             <div class="hero-access-row">
               <label class="sr-only" for="hero-access-email">Email address</label>
               <input type="email" id="hero-access-email" name="email" autocomplete="email" placeholder="you@example.com" required />
               <button type="submit" class="hero-access-button">
                 <span aria-hidden="true" class="hero-access-icon"></span>
-                <span>Get Early Access</span>
+                <span>Claim early access - first 100 spots</span>
               </button>
             </div>
           </form>
@@ -88,12 +94,14 @@
       </div>
     </section>
 
-    <!-- INTERACTIVE WORKSPACE SANDBOX (Logseq & Search Simulator) -->
+    <!-- CONCEPT PREVIEW (Logseq & Search Simulator) -->
     <section class="sandbox-section" id="workspace-sandbox">
       <div class="section-divider-line"></div>
       <div class="sandbox-header">
         <div class="sandbox-title-area">
-          <p class="section-subtitle">Experience how a current thought can reconnect with what you wrote before.</p>
+          <p class="section-kicker">Concept Preview</p>
+          <p class="section-subtitle">See how a current thought could surface older writing that explains it.</p>
+          <p class="section-subtitle text-muted">Watch InnerScript turn a private entry into a grounded reflection question.</p>
         </div>
         <div class="sandbox-controls">
           <button class="btn btn-tab active" id="btn-demo-anxiety" data-demo="anxiety" aria-label="Run anxiety loop demo">Anxiety</button>
@@ -171,14 +179,11 @@
       <div class="problem-centered">
         <h2 class="editorial-title" id="problem-title">The Tragedy of the Silent Archive</h2>
         <p class="editorial-para">
-          That writing contains your emotional curves, recurring fears, repeated habits, relationship histories,
-          buried ambitions, contradictions, and solutions to problems you solved years ago but have now forgotten.
+          Your old writing already contains emotional curves, recurring fears, repeated habits, and relationship
+          histories.
         </p>
         <p class="editorial-para text-muted">
-          But because notes are stored in linear lists or disconnected piles, 99% of your journals become a silent
-          cemetery. You almost never go back to read them. You repeat the same mistakes, ask the same unresolved
-          questions, and suffer from the same alignment loops because you cannot converse with your own long-range
-          memory.
+          The tragedy is not that you failed to write. The tragedy is that the writing stopped speaking back.
         </p>
       </div>
     </section>
@@ -260,7 +265,7 @@
       </div>
     </section>
 
-    <!-- AUDIENCE PERSONA SECTION -->
+    <!-- Archived for V3 copy pass: audience/archive section is paused until the import promise is clearer.
     <section class="audiences-section" id="audiences">
       <div class="section-divider-line"></div>
       <div class="audience-content-area" id="audience-cards-container">
@@ -281,8 +286,9 @@
         </div>
       </div>
     </section>
+    -->
 
-    <!-- SPECIFICATIONS BENTO GRID -->
+    <!-- Archived for V3 copy pass: Product Principles felt excessive for this page version.
     <section class="specs-section" id="specifications">
       <div class="section-divider-line"></div>
       <div class="specs-header">
@@ -319,6 +325,7 @@
         </div>
       </div>
     </section>
+    -->
 
     <!-- CALL TO COLLABORATE (MANIFESTO) -->
     <section class="manifesto-section" id="manifesto">
@@ -357,7 +364,7 @@
               we should talk.
             </p>
           </div>
-          <form class="collab-access-form" id="manifesto-collab-form" data-interest-form data-source="collaboration">
+          <form class="collab-access-form" id="manifesto-collab-form" data-interest-form data-source="collaboration_early_bird">
             <h4 class="collab-access-title">Join the quiet study.</h4>
             <div class="collab-access-row">
               <label class="sr-only" for="collab-email">Email address</label>
