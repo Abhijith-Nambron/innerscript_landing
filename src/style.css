@@ -666,6 +666,27 @@ section {
   background-color: var(--color-border-active);
 }
 
+.note-detail-node {
+  margin-bottom: 0.85rem;
+}
+
+.note-detail-node .node-text-wrapper {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.node-label {
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.note-detail-node .node-text {
+  color: var(--color-text-muted);
+}
+
 .fade-in-delayed {
   opacity: 0;
   transform: translateY(5px);

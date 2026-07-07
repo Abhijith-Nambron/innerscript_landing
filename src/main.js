@@ -11,6 +11,24 @@ const PREVIEW_VARIATIONS = [
     thought: 'I keep returning to the same idea, then pretending it does not matter.',
     followup: 'Every few months I write around it, rename it, and make it sound smaller than it is.',
     reflection: 'This resembles older entries where the ambition appears right before you dismiss it as unrealistic. Is the doubt about timing, or about admitting you still want the thing enough to start?',
+    journalNotes: [
+      {
+        label: 'What I call it',
+        text: 'A side thought, a someday idea, a distraction.'
+      },
+      {
+        label: 'What keeps happening',
+        text: 'I dismiss it in the morning, then sketch it again at night.'
+      },
+      {
+        label: 'What feels true',
+        text: 'The want is older than the excuse.'
+      },
+      {
+        label: 'Question to hold',
+        text: 'What would the smallest honest version look like?'
+      }
+    ],
     sources: [
       {
         date: 'MAR 12, 2026',
@@ -210,6 +228,15 @@ function renderLiveRecallPreview(preview) {
               <span class="node-text text-muted">${escapeHtml(preview.followup)}</span>
             </div>
           </div>
+          ${preview.journalNotes.map((note) => `
+            <div class="outliner-node depth-1 visible note-detail-node">
+              <span class="bullet-point"></span>
+              <div class="node-text-wrapper">
+                <span class="node-label">${escapeHtml(note.label)}</span>
+                <span class="node-text">${escapeHtml(note.text)}</span>
+              </div>
+            </div>
+          `).join('')}
         </div>
       </article>
       <article class="workspace-panel reflection-panel">
