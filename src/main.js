@@ -82,7 +82,7 @@ let currentDemo = 'anxiety';
 let isTyping = false;
 
 const interestCaptureConfig = {
-  endpoint: '<PASTE_NEW_ENDPOINT_HERE>',
+  endpoint: 'https://script.google.com/macros/s/AKfycbycgtEG_SUmpuaCArSQgJXU3AHGbeQqQHEFbt3QsXwtnedqnSePYPSPrqkmw2qvZuZgvg/exec',
   emailFieldName: 'email',
   sourceFieldName: 'source',
   timestampFieldName: 'timestamp',
@@ -439,14 +439,31 @@ function initBackgroundSphere3D() {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
   // Create large wireframe sphere
-  const geometry = new THREE.IcosahedronGeometry(7, 4);
+  const sphereRadius = 7.2;
+  const geometry = new THREE.IcosahedronGeometry(sphereRadius, 4);
+  const pointsGeometry = new THREE.IcosahedronGeometry(sphereRadius, 6);
+  const nodeCount = pointsGeometry.attributes.position.count * 3;
+  const nodePositions = new Float32Array(nodeCount * 3);
+
+  for (let i = 0; i < nodeCount; i++) {
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos((Math.random() * 2) - 1);
+    const offset = i * 3;
+
+    nodePositions[offset] = sphereRadius * Math.sin(phi) * Math.cos(theta);
+    nodePositions[offset + 1] = sphereRadius * Math.sin(phi) * Math.sin(theta);
+    nodePositions[offset + 2] = sphereRadius * Math.cos(phi);
+  }
+
+  const densePointsGeometry = new THREE.BufferGeometry();
+  densePointsGeometry.setAttribute('position', new THREE.BufferAttribute(nodePositions, 3));
   
   // Wireframe material (Periwinkle Blue)
   const lineMat = new THREE.MeshBasicMaterial({
     color: 0xb1c5ff,
     wireframe: true,
     transparent: true,
-    opacity: 0.06
+    opacity: 0.12
   });
   const sphereLines = new THREE.Mesh(geometry, lineMat);
   scene.add(sphereLines);
@@ -454,11 +471,11 @@ function initBackgroundSphere3D() {
   // Vertices points material (Gold stars)
   const pointsMat = new THREE.PointsMaterial({
     color: 0xdcc661,
-    size: 0.05,
+    size: 0.04,
     transparent: true,
-    opacity: 0.35
+    opacity: 0.5
   });
-  const spherePoints = new THREE.Points(geometry, pointsMat);
+  const spherePoints = new THREE.Points(densePointsGeometry, pointsMat);
   scene.add(spherePoints);
 
   const clock = new THREE.Clock();

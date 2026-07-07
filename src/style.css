@@ -420,7 +420,7 @@ em {
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.22; /* High elegance background element */
+  opacity: 0.34; /* High elegance background element */
   mix-blend-mode: screen;
 }
 
