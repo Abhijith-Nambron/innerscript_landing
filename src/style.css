@@ -320,28 +320,8 @@ em {
   font-size: clamp(1.02rem, 1.18vw, 1.12rem);
   color: var(--color-text-muted);
   max-width: 720px;
-  margin-bottom: 1.25rem;
+  margin-bottom: 2rem;
   line-height: 1.5;
-}
-
-.hero-quote {
-  max-width: 600px;
-  margin: 0 0 2rem;
-  color: var(--color-text-muted);
-  text-align: center;
-}
-
-.hero-quote blockquote {
-  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
-  line-height: 1.5;
-}
-
-.hero-quote figcaption {
-  margin-top: 0.4rem;
-  color: var(--color-text-dim);
-  font-size: 0.74rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
 }
 
 .hero-access-form {

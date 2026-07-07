@@ -4,15 +4,17 @@ Purpose: preserve approved landing-page copy decisions before changing the live 
 
 ## Approved Manifesto Copy
 
-To whoever is reading this,
+Dear reader,
 
-Most modern software is built to exploit your attention. Apps flash notifications, gamify basic habits, and mine your deepest memories to sell ads or train corporate base models.
+Most modern software is built to exploit your attention. Apps flash notifications, gamify basic habits, and mine your deepest interests to sell ads or train corporate base models.
 
-I believe there is room for software that behaves like a quiet study. An archive that is local, completely owned by you, and designed to help you think rather than keep you scrolling.
+We believe there is room for software that behaves like a quiet study. An archive that is local, completely owned by you, and designed to help you think rather than keep you scrolling.
 
-InnerScript is an exploration of this idea. I am looking for collaborators, system engineers, designers, and testers who want to work on a local-first memory system.
+InnerScript is our exploration of this idea. We are looking for collaborators who want to work on a local-first memory system.
 
 If this resonates with you, let's build this together.
+
+The InnerScript team
 
 ## Copy Rules
 
@@ -31,7 +33,7 @@ If this resonates with you, let's build this together.
 - Use both intro directions: "See how a current thought could surface older writing that explains it" and "Watch InnerScript turn a private entry into a grounded reflection question."
 - The current `Product Principles` section feels excessive and is archived/commented out for the V3 pass.
 - The `Give old notes a usable second life` audience/archive section is archived/commented out for the V3 pass.
-- Approved problem copy: "Your old writing already contains emotional curves, recurring fears, repeated habits, and relationship histories. The tragedy is not that you failed to write. The tragedy is that the writing stopped speaking back."
+- Approved problem copy: "Your old writing holds emotional curves, recurring fears, repeated habits, and relationship histories, but it stopped speaking back."
 
 ## Signup And Sheet Decisions
 
@@ -49,7 +51,6 @@ If this resonates with you, let's build this together.
 
 ## Jung Quote Decision
 
-- Desired quote: "Until you make the unconscious conscious, it will direct your life and you will call it fate."
-- Use conservative attribution unless a primary source is found.
-- Preferred page wording: "Until you make the unconscious conscious..." with "Often attributed to Carl Jung."
-- Secondary attribution seen during planning: Economic Times quote-of-the-day article, July 2026.
+- Removed from the live V3 page.
+- Do not show the Jung attribution unless it is re-approved.
+- Earlier secondary attribution seen during planning: Economic Times quote-of-the-day article, July 2026.

@@ -26,23 +26,7 @@ InnerScript is an AI journal companion that helps make unconscious patterns visi
 
 ## Jung Quote Placement
 
-### Hero Quote
-
-"Until you make the unconscious conscious..."
-
-Often attributed to Carl Jung.
-
-### Section Epigraph
-
-"Until you make the unconscious conscious, it will direct your life and you will call it fate."
-
-InnerScript starts from that premise: your writing already contains the patterns you keep living through.
-
-### Minimal Attribution
-
-"Until you make the unconscious conscious..."
-
-Often attributed to Carl Jung.
+Removed from live V3. Do not show the Jung quote or attribution unless re-approved.
 
 ## Concept Preview Section Names
 
@@ -84,21 +68,15 @@ Selected V3 direction: use both Option A and Option C.
 
 ### Option A - Compact Archive Problem
 
-Your old writing already contains emotional curves, recurring fears, repeated habits, and relationship histories.
-
-Most of it stays buried because journals become disconnected piles. InnerScript exists to make that archive searchable as lived context.
+Your old writing holds emotional curves, recurring fears, repeated habits, and relationship histories, but it stopped speaking back.
 
 ### Option B - Stronger Psychology
 
-Your private archive already shows emotional curves, recurring fears, repeated habits, and contradictions.
-
-The tragedy is not that you failed to write. The tragedy is that the writing stopped speaking back.
+Your private archive shows recurring fears, repeated habits, relationship histories, and contradictions that stopped speaking back.
 
 ### Selected V3 Direction
 
-Your old writing already contains emotional curves, recurring fears, repeated habits, and relationship histories.
-
-The tragedy is not that you failed to write. The tragedy is that the writing stopped speaking back.
+Your old writing holds emotional curves, recurring fears, repeated habits, and relationship histories, but it stopped speaking back.
 
 ### Option C - Plain Product
 
