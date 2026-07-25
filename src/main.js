@@ -164,7 +164,7 @@ const ARCHIVED_PREVIEW_VARIATIONS = [
 let currentPreviewId = 'live-recall';
 
 const interestCaptureConfig = {
-  endpoint: 'https://script.google.com/macros/s/AKfycbycgtEG_SUmpuaCArSQgJXU3AHGbeQqQHEFbt3QsXwtnedqnSePYPSPrqkmw2qvZuZgvg/exec',
+  endpoint: 'https://script.google.com/macros/s/AKfycbwA2-2-1JKnfOuVeFQ85JeO8TS4PMnyXwCUmEkO4dOB3yXAUOzIghABWpuA2c6aWnWdeA/exec',
   emailFieldName: 'email',
   sourceFieldName: 'source',
   timestampFieldName: 'timestamp',
@@ -387,76 +387,112 @@ function renderSourceCard(source) {
 // 3. EMAIL INTEREST CAPTURE
 function initInterestCaptureForms() {
   document.querySelectorAll('[data-interest-form]').forEach((form) => {
-    form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', async (event) => {
       event.preventDefault();
 
       if (!form.reportValidity()) return;
+      if (form.dataset.submitting === 'true') return;
 
       const emailInput = form.querySelector('input[type="email"]');
-      const email = emailInput ? emailInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim().toLowerCase() : '';
       const source = form.getAttribute('data-source') || 'unknown';
+      const submitButton = form.querySelector('button[type="submit"]');
+      const isCollaboration = source.startsWith('collaboration');
 
       if (!email) return;
 
-      postInterestCapture(interestCaptureConfig, email, source);
-      form.reset();
+      form.dataset.submitting = 'true';
+      if (submitButton) submitButton.disabled = true;
 
-      const isCollaboration = source.startsWith('collaboration');
-      showInterestToast(
-        isCollaboration
-          ? 'Thanks. We will reach out about collaborating.'
-          : 'You are on the early access list.',
-        !isCollaboration,
-      );
+      try {
+        const result = await postInterestCapture(interestCaptureConfig, email, source);
+
+        if (result.status === 'already_exists') {
+          showInterestToast(getAlreadyJoinedMessage(isCollaboration), false);
+        } else {
+          showInterestToast(
+            isCollaboration
+              ? 'Thanks. We will reach out about collaborating.'
+              : 'You are on the early access list.',
+            !isCollaboration,
+          );
+        }
+
+        form.reset();
+      } catch (error) {
+        console.error('Interest capture failed:', error);
+        showInterestToast('Something went wrong. Please try again.', false);
+      } finally {
+        form.dataset.submitting = 'false';
+        if (submitButton) submitButton.disabled = false;
+      }
     });
   });
 }
 
-function postInterestCapture(config, email, source) {
-  const iframe = ensureInterestCaptureFrame();
-  const submitForm = document.createElement('form');
-
-  submitForm.method = 'POST';
-  submitForm.action = config.endpoint.trim();
-  submitForm.target = iframe.name;
-  submitForm.acceptCharset = 'UTF-8';
-  submitForm.style.display = 'none';
-
-  appendHiddenField(submitForm, config.emailFieldName, email);
-  appendHiddenField(submitForm, config.sourceFieldName, source);
-  appendHiddenField(submitForm, config.timestampFieldName, new Date().toISOString());
-  appendHiddenField(submitForm, config.userAgentFieldName, navigator.userAgent);
-
-  document.body.appendChild(submitForm);
-  submitForm.submit();
-  setTimeout(() => submitForm.remove(), 0);
+function getAlreadyJoinedMessage(isCollaboration) {
+  return isCollaboration
+    ? "You're already on the collaboration list."
+    : "You're already on the early access list.";
 }
 
-function ensureInterestCaptureFrame() {
-  const frameName = 'interest-capture-frame';
-  let iframe = document.querySelector(`iframe[name="${frameName}"]`);
+async function postInterestCapture(config, email, source) {
+  const body = new URLSearchParams({
+    [config.emailFieldName]: email,
+    [config.sourceFieldName]: source,
+    [config.timestampFieldName]: new Date().toISOString(),
+    [config.userAgentFieldName]: navigator.userAgent
+  });
 
-  if (!iframe) {
-    iframe = document.createElement('iframe');
-    iframe.name = frameName;
-    iframe.title = 'Hidden interest capture submission frame';
-    iframe.setAttribute('aria-hidden', 'true');
-    iframe.tabIndex = -1;
-    iframe.style.display = 'none';
-    document.body.appendChild(iframe);
+  const response = await fetch(config.endpoint.trim(), {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    },
+    body
+  });
+
+  if (!response.ok) {
+    throw new Error(`Interest capture request failed with status ${response.status}`);
   }
 
-  return iframe;
+  const text = (await response.text()).trim();
+  return parseInterestCaptureResponse(text);
 }
 
-function appendHiddenField(form, name, value) {
-  if (!name) return;
+function parseInterestCaptureResponse(text) {
+  if (!text) return { status: 'ok' };
 
-  const input = document.createElement('input');
-  input.type = 'hidden';
-  input.name = name;
-  input.value = value;
-  form.appendChild(input);
+  try {
+    const payload = JSON.parse(text);
+    const status = String(payload.status || payload.result || '').toLowerCase();
+
+    if (status === 'already_exists' || status === 'duplicate' || status === 'exists') {
+      return { status: 'already_exists' };
+    }
+
+    if (status === 'error' || status === 'failed') {
+      throw new Error(payload.message || 'Interest capture failed');
+    }
+
+    return { status: 'ok' };
+  } catch (error) {
+    // Re-throw application errors from JSON payloads; fall through for plain text.
+    if (!(error instanceof SyntaxError)) throw error;
+
+    const normalized = text.toLowerCase();
+
+    if (
+      normalized === 'already_exists' ||
+      normalized === 'duplicate' ||
+      normalized.includes('already')
+    ) {
+      return { status: 'already_exists' };
+    }
+
+    // Backward compatible with the previous plain "OK" Apps Script response.
+    return { status: 'ok' };
+  }
 }
 
 function showInterestToast(message, celebrate = false) {
