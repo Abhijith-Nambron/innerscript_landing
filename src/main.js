@@ -401,9 +401,13 @@ function initInterestCaptureForms() {
       postInterestCapture(interestCaptureConfig, email, source);
       form.reset();
 
-      showInterestToast(source.startsWith('collaboration')
-        ? 'Thanks. We will reach out about collaborating.'
-        : 'You are on the early access list.');
+      const isCollaboration = source.startsWith('collaboration');
+      showInterestToast(
+        isCollaboration
+          ? 'Thanks. We will reach out about collaborating.'
+          : 'You are on the early access list.',
+        !isCollaboration,
+      );
     });
   });
 }
@@ -455,7 +459,7 @@ function appendHiddenField(form, name, value) {
   form.appendChild(input);
 }
 
-function showInterestToast(message) {
+function showInterestToast(message, celebrate = false) {
   let toast = document.querySelector('[data-interest-toast]');
 
   if (!toast) {
@@ -467,7 +471,52 @@ function showInterestToast(message) {
     document.body.appendChild(toast);
   }
 
-  toast.textContent = message;
+  toast.replaceChildren();
+  const shouldAnimate = celebrate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (celebrate) {
+    if (shouldAnimate) {
+      const toastRipple = document.createElement('span');
+      toastRipple.className = 'interest-toast-ripple';
+      toastRipple.setAttribute('aria-hidden', 'true');
+      toast.appendChild(toastRipple);
+    }
+
+    const toastIcon = document.createElement('span');
+    toastIcon.className = 'interest-toast-icon';
+    toastIcon.setAttribute('aria-hidden', 'true');
+    toastIcon.textContent = '🎉';
+    toast.appendChild(toastIcon);
+  }
+
+  const toastMessage = document.createElement('span');
+  toastMessage.className = 'interest-toast-message';
+  toastMessage.textContent = message;
+  toast.appendChild(toastMessage);
+
+  if (shouldAnimate) {
+    const confetti = document.createElement('span');
+    confetti.className = 'interest-toast-confetti';
+    confetti.setAttribute('aria-hidden', 'true');
+
+    const colors = ['#5b8cff', '#8caeff', '#f4c95d', '#f06f7b', '#73d2a7'];
+    for (let index = 0; index < 28; index += 1) {
+      const particle = document.createElement('span');
+      const angle = (index / 28) * Math.PI * 2;
+      const distance = 70 + Math.random() * 70;
+
+      particle.className = 'interest-toast-confetti-piece';
+      particle.style.setProperty('--confetti-x', `${Math.cos(angle) * distance}px`);
+      particle.style.setProperty('--confetti-y', `${Math.sin(angle) * distance}px`);
+      particle.style.setProperty('--confetti-rotation', `${Math.random() * 540 - 270}deg`);
+      particle.style.setProperty('--confetti-delay', `${Math.random() * 120}ms`);
+      particle.style.setProperty('--confetti-color', colors[index % colors.length]);
+      confetti.appendChild(particle);
+    }
+
+    toast.appendChild(confetti);
+  }
+
   toast.classList.add('visible');
 
   clearTimeout(showInterestToast.hideTimer);
