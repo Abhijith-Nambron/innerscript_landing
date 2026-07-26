@@ -184,8 +184,6 @@ function escapeHtml(value) {
 function renderPreviewVariation(previewId) {
   const preview = PREVIEW_VARIATIONS.find((item) => item.id === previewId) || PREVIEW_VARIATIONS[0];
   const stage = document.getElementById('concept-preview-stage');
-  const note = document.getElementById('preview-decision-note');
-  const selectedIndex = PREVIEW_VARIATIONS.findIndex((item) => item.id === preview.id);
 
   if (!stage) return;
 
@@ -193,10 +191,6 @@ function renderPreviewVariation(previewId) {
   stage.className = `concept-preview-stage preview-${preview.id}`;
   stage.setAttribute('aria-labelledby', `tab-${preview.id}`);
   stage.innerHTML = getPreviewMarkup(preview);
-
-  if (note) {
-    note.textContent = `Variation ${selectedIndex + 1} of ${PREVIEW_VARIATIONS.length} / ${preview.label}`;
-  }
 
   document.querySelectorAll('[data-preview-tab]').forEach((button) => {
     const isActive = button.dataset.previewTab === preview.id;
@@ -217,7 +211,7 @@ function renderLiveRecallPreview(preview) {
     <div class="workspace-grid" data-preview-panel="${preview.id}">
       <article class="workspace-panel outliner-panel">
         <div class="panel-header">
-          <div class="panel-title"><span class="icon-outline"></span><span>journal / today.md</span></div>
+          <div class="panel-title"><span class="icon-outline"></span><span>journal / today</span></div>
           <div class="panel-status">WRITING</div>
         </div>
         <div class="outliner-content">
@@ -247,7 +241,6 @@ function renderLiveRecallPreview(preview) {
       <article class="workspace-panel reflection-panel">
         <div class="panel-header">
           <div class="panel-title"><span class="icon-reflection"></span><span>Reflection</span></div>
-          <div class="panel-tag">SOURCES ACTIVE</div>
         </div>
         <div class="reflection-content">
           <div class="reflection-card">

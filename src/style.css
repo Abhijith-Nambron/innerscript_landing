@@ -297,7 +297,8 @@ em {
   text-align: center;
 }
 
-.hero-left {
+.hero-left,
+.hero-copy {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -416,6 +417,35 @@ em {
   color: var(--color-text-dim);
   font-size: 0.82rem;
   text-align: center;
+}
+
+@media (min-width: 1025px) {
+  .hero-content {
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-left {
+    position: relative;
+  }
+
+  .hero-copy {
+    position: absolute;
+    right: 0;
+    bottom: calc(50% + 2rem);
+    left: 0;
+  }
+
+  .hero-subtitle {
+    margin-bottom: 0;
+  }
+
+  .hero-access-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -27px);
+  }
 }
 
 .hero-access-icon {
