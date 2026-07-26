@@ -426,25 +426,18 @@ em {
   }
 
   .hero-left {
-    position: relative;
-  }
-
-  .hero-copy {
     position: absolute;
+    top: max(8rem, calc(50% - 17rem));
     right: 0;
-    bottom: calc(50% + 2rem);
     left: 0;
   }
 
-  .hero-subtitle {
-    margin-bottom: 0;
+  .hero-copy {
+    position: static;
   }
 
   .hero-access-form {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -27px);
+    position: static;
   }
 }
 
