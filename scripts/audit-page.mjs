@@ -11,9 +11,7 @@ const auditUrl = process.env.AUDIT_URL || defaultUrl;
 const tabs = [
   'live-recall',
   'timeline-replay',
-  'source-stack',
-  'pattern-map',
-  'before-after'
+  'source-stack'
 ];
 const viewports = [
   { name: 'desktop', width: 1440, height: 1100 },
@@ -57,6 +55,7 @@ async function main() {
     await page.route('https://script.google.com/**', (route) => route.abort());
 
     allFindings.push(...await inspectLandingBasics(page, viewport.name));
+    allFindings.push(...await inspectFooterScrollTop(page, viewport.name));
 
     for (const tab of tabs) {
       await page.locator(`[data-preview-tab="${tab}"]`).click();
@@ -198,16 +197,6 @@ async function inspectPreviewState(page, viewportName, tab) {
     });
   }
 
-  if (tab === 'pattern-map') {
-    findings.push({
-      severity: 'Medium',
-      area: 'Wording',
-      step: `${viewportName} Pattern Map`,
-      finding: 'Pattern summaries risk sounding overconfident because the UI compresses personal history into scored labels.',
-      recommendation: 'Use softer language or make source inspection more prominent if this direction is selected.'
-    });
-  }
-
   if (tab === 'timeline-replay') {
     findings.push({
       severity: 'Medium',
@@ -218,17 +207,26 @@ async function inspectPreviewState(page, viewportName, tab) {
     });
   }
 
-  if (tab === 'before-after') {
-    findings.push({
-      severity: 'Low',
-      area: 'Clarity',
-      step: `${viewportName} Before / After`,
-      finding: 'This is the easiest variation to understand, but it may oversimplify the actual product loop.',
-      recommendation: 'Use it for landing clarity only if the next section carries source-backed depth.'
-    });
+  return findings;
+}
+
+async function inspectFooterScrollTop(page, viewportName) {
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await page.locator('[data-scroll-top]').click();
+  await page.waitForFunction(() => window.scrollY <= 5, null, { timeout: 5000 });
+
+  const scrollY = await page.evaluate(() => window.scrollY);
+  if (scrollY > 5) {
+    return [{
+      severity: 'High',
+      area: 'Interaction',
+      step: `${viewportName} footer top link`,
+      finding: `Go to top left the page at scrollY=${scrollY}.`,
+      recommendation: 'Use a JS scroll-to-top handler instead of relying only on hash navigation.'
+    }];
   }
 
-  return findings;
+  return [];
 }
 
 async function writeReport(findings, screenshots) {
