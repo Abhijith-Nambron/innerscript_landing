@@ -1,35 +1,12 @@
 /**
- * InnerScript interest capture — Google Apps Script
+ * InnerScript interest capture - Google Apps Script
  *
- * IMPORTANT: Saving this file is not enough. You must deploy a NEW web-app version
- * or the landing page keeps using the old always-append script.
- *
- * Deploy as a Web App:
- *   1. Open the signup Google Sheet → Extensions → Apps Script
- *   2. Replace ALL code with this file
- *   3. Click Deploy → Manage deployments
- *   4. Pencil (Edit) on the existing deployment
- *   5. Version → New version
- *   6. Execute as: Me
- *   7. Who has access: Anyone
- *   8. Deploy
- *   9. Keep the same Web App URL (already in src/main.js)
- *
- * Verify after deploy:
- *   Submit the same email+source twice. Second response must be:
- *   {"status":"already_exists"}
- *   (not plain OK)
- *
- * Expected sheet columns (row 1 headers, order flexible if headers match names):
- *   email | source | timestamp | userAgent
- *
- * Response body (JSON text):
- *   {"status":"ok"}
- *   {"status":"already_exists"}
+ * Deploy this script as a Web App from the signup Google Sheet. The expected
+ * columns are email, source, timestamp, and userAgent.
  */
 
-var SHEET_NAME = ''; // leave blank to use the active/first sheet
-var FALLBACK_EMAIL_COLUMN = 1; // 1-indexed, used only if headers are missing
+var SHEET_NAME = '';
+var FALLBACK_EMAIL_COLUMN = 1;
 var FALLBACK_SOURCE_COLUMN = 2;
 
 function doPost(e) {
@@ -51,7 +28,6 @@ function doPost(e) {
       return jsonResponse({ status: 'already_exists' });
     }
 
-    // Always append in the canonical order used by the landing page.
     sheet.appendRow([email, source, timestamp, userAgent]);
     return jsonResponse({ status: 'ok' });
   } catch (error) {
@@ -66,7 +42,6 @@ function readParams_(e) {
   var params = (e && e.parameter) || {};
   if (params.email || params.source) return params;
 
-  // Fallback if the request body was sent as JSON.
   if (e && e.postData && e.postData.contents) {
     try {
       var parsed = JSON.parse(e.postData.contents);
@@ -81,9 +56,7 @@ function getSignupSheet_() {
   var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
   if (SHEET_NAME) {
     var named = spreadsheet.getSheetByName(SHEET_NAME);
-    if (!named) {
-      throw new Error('Sheet not found: ' + SHEET_NAME);
-    }
+    if (!named) throw new Error('Sheet not found: ' + SHEET_NAME);
     return named;
   }
   return spreadsheet.getSheets()[0];
@@ -106,18 +79,15 @@ function resolveColumns_(sheet) {
 
 function emailSourceExists_(sheet, email, source, emailColumn, sourceColumn) {
   var lastRow = sheet.getLastRow();
-  // Row 1 is headers; data starts at row 2.
   if (lastRow < 2) return false;
 
   var width = Math.max(emailColumn, sourceColumn);
-  var values = sheet.getRange(2, 1, lastRow, width).getValues();
+  var values = sheet.getRange(2, 1, lastRow - 1, width).getValues();
 
   for (var i = 0; i < values.length; i++) {
     var rowEmail = String(values[i][emailColumn - 1] || '').trim().toLowerCase();
     var rowSource = String(values[i][sourceColumn - 1] || '').trim();
-    if (rowEmail === email && rowSource === source) {
-      return true;
-    }
+    if (rowEmail === email && rowSource === source) return true;
   }
 
   return false;

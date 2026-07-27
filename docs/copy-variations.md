@@ -96,6 +96,12 @@ Split silent archive against speaking context.
 
 Best for explaining the archive problem quickly.
 
+### Selected Live Set
+
+Keep three live variants for V3: Live Recall, Timeline Replay, and Source Stack.
+
+Archive Pattern Map and Before / After for later review.
+
 ## Concept Preview Scenario Examples
 
 ### Selected - Private Ambition

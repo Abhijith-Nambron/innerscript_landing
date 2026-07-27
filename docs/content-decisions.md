@@ -34,6 +34,8 @@ The InnerScript team
 - Show multiple concept-preview treatments as manual tabs so Joel can decide which model is clearest.
 - Use five preview variations for the decision pass: Live Recall, Timeline Replay, Source Stack, Pattern Map, and Before / After.
 - Keep the variations meaningfully different in layout, not just copy swaps.
+- Final V3 live preview keeps three variants: Live Recall, Timeline Replay, and Source Stack.
+- Pattern Map and Before / After are archived in code/docs for later review, not shown in the live switcher.
 - The current `Product Principles` section feels excessive and is archived/commented out for the V3 pass.
 - The `Give old notes a usable second life` audience/archive section is archived/commented out for the V3 pass.
 - The `Two Loops of Self-Understanding` section is archived/commented out for the V3 pass.

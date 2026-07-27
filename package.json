@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "audit:page": "node scripts/audit-page.mjs",
+    "test:layout": "node scripts/test-layout-regression.mjs",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
