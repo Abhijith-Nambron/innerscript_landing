@@ -87,12 +87,14 @@ try {
       variationCaptionPresent: Boolean(document.querySelector('#preview-decision-note')),
       journalLabel: document.querySelector('.outliner-panel .panel-title')?.textContent?.trim(),
       sourcesActivePresent: document.body.textContent?.includes('SOURCES ACTIVE'),
+      productLoopCaptionPresent: document.body.textContent?.includes('Best for showing the product loop'),
     }));
 
     assert(!copyContracts.firstHundredUnderlined, 'First 100 must not be underlined');
     assert(!copyContracts.variationCaptionPresent, 'Preview variation caption must stay removed');
     assert(copyContracts.journalLabel === 'journal / today', `Unexpected journal label: ${copyContracts.journalLabel}`);
     assert(!copyContracts.sourcesActivePresent, 'SOURCES ACTIVE label must stay removed');
+    assert(!copyContracts.productLoopCaptionPresent, 'Product loop showcase caption must stay removed');
     await page.close();
   } finally {
     await browser.close();

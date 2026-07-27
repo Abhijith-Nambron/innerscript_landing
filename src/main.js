@@ -5,7 +5,6 @@ const PREVIEW_VARIATIONS = [
   {
     id: 'live-recall',
     label: 'Live Recall',
-    note: 'Best for showing the product loop as a workspace.',
     eyebrow: 'CURRENT THOUGHT',
     title: 'The thought enters. The archive answers.',
     thought: 'I keep returning to the same idea, then pretending it does not matter.',
@@ -257,7 +256,6 @@ function renderLiveRecallPreview(preview) {
         </div>
       </article>
     </div>
-    <p class="preview-usage-note">${escapeHtml(preview.note)}</p>
   `;
 }
 
