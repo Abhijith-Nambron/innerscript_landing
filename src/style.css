@@ -1609,28 +1609,159 @@ section {
 
 .interest-toast {
   position: fixed;
-  right: 1.25rem;
-  bottom: 1.25rem;
+  top: 1.5rem;
+  right: 1.5rem;
   z-index: 200;
-  max-width: min(360px, calc(100vw - 2rem));
-  padding: 0.85rem 1rem;
+  width: min(340px, calc(100vw - 3rem));
+  padding: 1rem 1.2rem;
   border: 1px solid var(--color-border-active);
-  border-left: 3px solid var(--color-blue);
   border-radius: 6px;
   background-color: rgba(13, 14, 15, 0.94);
   color: var(--color-text-primary);
   box-shadow: 0 16px 40px rgba(0,0,0,0.34);
-  font-size: 0.9rem;
+  font-size: 0.98rem;
   line-height: 1.4;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(10px);
+  transform: translateY(-10px);
   transition: opacity 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
 }
 
 .interest-toast.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.interest-toast-message {
+  position: relative;
+  z-index: 1;
+}
+
+.interest-toast-icon {
+  position: relative;
+  z-index: 1;
+  flex: 0 0 auto;
+  font-size: 1.15em;
+  line-height: 1;
+  transform-origin: 50% 100%;
+  animation: interest-toast-popper 650ms cubic-bezier(0.16, 0.84, 0.44, 1) both;
+}
+
+@keyframes interest-toast-popper {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(-24deg);
+  }
+
+  55% {
+    opacity: 1;
+    transform: scale(1.45) rotate(12deg);
+  }
+
+  75% {
+    transform: scale(0.9) rotate(-5deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.interest-toast-ripple {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.interest-toast-ripple::before {
+  content: '';
+  position: absolute;
+  inset: -15%;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    transparent 0 54%,
+    rgba(255, 91, 125, 0.72) 56% 60%,
+    rgba(255, 179, 71, 0.68) 62% 66%,
+    rgba(244, 224, 96, 0.65) 68% 72%,
+    rgba(91, 214, 154, 0.62) 74% 78%,
+    rgba(91, 140, 255, 0.68) 80% 84%,
+    rgba(183, 112, 255, 0.66) 86% 90%,
+    transparent 92%
+  );
+  mix-blend-mode: screen;
+  transform: scale(0.08, 0.04);
+  transform-origin: 50% 0%;
+  animation: interest-toast-rainbow-ripple 1.35s cubic-bezier(0.16, 0.84, 0.44, 1) forwards;
+}
+
+@keyframes interest-toast-rainbow-ripple {
+  0% {
+    opacity: 0;
+    transform: scale(0.08, 0.04);
+  }
+
+  12% {
+    opacity: 0.9;
+  }
+
+  96% {
+    opacity: 0.9;
+    transform: scale(1.45, 1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.45, 1.2);
+  }
+}
+
+.interest-toast-confetti {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+.interest-toast-confetti-piece {
+  position: absolute;
+  width: 6px;
+  height: 9px;
+  border-radius: 1px;
+  background-color: var(--confetti-color);
+  opacity: 0;
+  animation: interest-toast-confetti-burst 850ms cubic-bezier(0.16, 0.84, 0.44, 1) var(--confetti-delay) forwards;
+}
+
+@keyframes interest-toast-confetti-burst {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.5);
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--confetti-x)), calc(-50% + var(--confetti-y))) rotate(var(--confetti-rotation)) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interest-toast-icon {
+    animation: none;
+  }
 }
 
 /* FOOTER Styles */
@@ -2058,11 +2189,18 @@ section {
   }
 
   .interest-toast {
-    right: 1rem;
-    bottom: 1rem;
-    left: 1rem;
-    max-width: none;
+    top: 68px;
+    right: auto;
+    left: 50%;
+    width: min(340px, calc(100vw - 2rem));
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
     text-align: center;
+    transform: translate(-50%, -10px);
+  }
+
+  .interest-toast.visible {
+    transform: translate(-50%, 0);
   }
 }
 
